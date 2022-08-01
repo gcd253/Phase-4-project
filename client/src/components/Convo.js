@@ -26,7 +26,7 @@ function Convo({convo}){
 
     return <div>
         <div id="messages">
-        {messages.map(message=><Message id={message.id} message={message}/>)}
+        {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
         <div id="new-message">
             <NewMessage convo={convo} sendMessage={handleNewMessage}/>
