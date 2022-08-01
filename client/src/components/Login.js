@@ -27,43 +27,47 @@ function Login({ onLogin }) {
     }
   
     return (
-    <div>
+    <div className="form-div">
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
+      <label className="form-label" htmlFor="username">Username:</label>
       <input
+        className="form-input"
         placeholder="Username"
         type="text"
         id="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <label htmlFor="email">Email:</label>
+      <label className="form-label" htmlFor="email">Email:</label>
       <input
+        className="form-input"
         placeholder="Email address"
         type="email"
         id="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="password">Password:</label>
+      <label className="form-label" htmlFor="password">Password:</label>
       <input
+        className="form-input"
         placeholder="Password"
         type="password"
         id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <label htmlFor="password_confirmation">Confirm Password:</label>
+      <label className="form-label" htmlFor="password_confirmation">Confirm Password:</label>
       <input
+        className="form-input"
         placeholder="Confirm password"
         type="password"
         id="password_confirmation"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button className="form-button" type="submit">Submit</button>
     </form>
-      </div>
+    </div>
     );
   }
 
