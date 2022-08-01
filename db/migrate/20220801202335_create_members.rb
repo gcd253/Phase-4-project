@@ -1,7 +1,6 @@
-class CreateMessages < ActiveRecord::Migration[6.1]
+class CreateMembers < ActiveRecord::Migration[6.1]
   def change
-    create_table :messages do |t|
-      t.text :message
+    create_table :members do |t|
       t.integer :user_id
       t.integer :conversation_id
 
