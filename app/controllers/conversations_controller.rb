@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
     #Order these by message created_at
     def index
         convo = Conversation.all
-        render json: convo, status: :ok
+        render json: convo.reverse, status: :ok
     end
 
     def show
