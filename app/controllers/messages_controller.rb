@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
   # POST /messages
   def create
     @message = Message.create!(message_params)
-    render json: @message, status: :created, location: @message
+    render json: @message, status: :created
   end
 
   # PATCH/PUT /messages/1
@@ -38,6 +38,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:chat_message)
+      params.permit(:message)
     end
 end

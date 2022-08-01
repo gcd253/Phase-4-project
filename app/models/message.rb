@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-    validates :chat_message, presence: true
+    validates :message, presence: true
 
     belongs_to :conversation
-    has_many :users, through: :conversation
+    belongs_to :user
 end

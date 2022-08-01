@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     
 
-    has_many :conversations
-    has_many :messages, through: :conversations
+    has_many :members
+    has_many :messages
+    has_many :conversations, through: :members
 end
