@@ -25,7 +25,7 @@ function Convo({convo}){
     }
 
     return <div>
-        <div id="messages">
+        <div id="messages-container">
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
         <div id="new-message">

@@ -15,8 +15,13 @@ function Login({ onLogin }) {
         .then((r) => r.json())
         .then((user) => onLogin(user));
     }
+
+    function handleCreateAccount(){
+        navigate("/SignUp")
+    }
   
     return (
+    <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -25,6 +30,8 @@ function Login({ onLogin }) {
         />
         <button type="submit">Login</button>
       </form>
+      <button onClick={handleCreateAccount}>Create Account</button>
+      </div>
     );
   }
 
