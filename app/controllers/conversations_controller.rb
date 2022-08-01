@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
     #Order these by message created_at
     def index
         convo = Conversation.all
+        # .where(user_id: session[:user_id])
         render json: convo.reverse, status: :ok
     end
 
