@@ -8,8 +8,12 @@ function NewMessage({convo, sendMessage}){
         sendMessage(newMessage)
     }
 
-    return <form>
-        <text-input></text-input>
+    function handleChange(e){
+        setNewMessage(e.target.value)
+    }
+
+    return <form onSubmit={handleSubmit}>
+        <text-input value={newMessage.content} onChange={handleChange}></text-input>
     </form>
 }
 
