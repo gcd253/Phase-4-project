@@ -13,6 +13,14 @@ function Convo({convo}){
     },[])
 
     function handleNewMessage(newMessage){
+        fetch("url",{
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(newMessage)
+        })
+        if(Math.random < .3){
+            navigate.push('/danger')
+        }
         setMessages([...messages, newMessage])
     }
 
