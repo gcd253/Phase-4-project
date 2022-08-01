@@ -1,4 +1,4 @@
-import Convo from './components/Convo'
+import ConvoCard from './components/ConvoCard'
 import {useState, useEffect} from 'react'
 
 function Inbox({user}){

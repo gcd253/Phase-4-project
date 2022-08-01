@@ -4,11 +4,13 @@ function ConvoCard({convo, user}){
 
 
     function handleClick(){
-        navigate.push(???)
+        //navigate to this convo's page
     }
 
     return <div id={convo.id} onClick={handleClick}>
-        <p>{convo.name}, {convo.users.join(", ")}, {convo.updated_at}</p>
+        <p>{convo.name}</p>
+        <p>{convo.users.join(", ")}</p>
+        <p>{convo.updated_at}</p>
     </div>
 }
 
