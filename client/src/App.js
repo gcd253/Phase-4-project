@@ -10,7 +10,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
+    fetch("http://localhost:3000/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }
