@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_08_01_202335) do
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -9,7 +9,7 @@ User.create(username: "test", email: "test@test.com", password_digest: "2a$12$TL
 end
 
 10.times do 
-    Conversation.create()
+    Conversation.create(name: Faker::Company.catch_phrase)
 end
 
 30.times do
