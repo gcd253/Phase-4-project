@@ -44,3 +44,16 @@ code {
 .form-button:hover {
   background-color: grey;
 }
+
+.convo-card {
+  background-color: rgb(183, 183, 183);
+  padding-left: 15px;
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+.convo-card:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 function ConvoCard({convo, user, handleSelect}){
 
-    let navigate = useNavigate()
+    let navigate = useNavigate();
 
     function handleClick(){
         handleSelect(convo)
@@ -10,7 +10,7 @@ function ConvoCard({convo, user, handleSelect}){
 
     }
 
-    return <div id={convo.id} onClick={handleClick}>
+    return <div className="convo-card" id={convo.id} onClick={handleClick}>
         <p>{convo.name}</p>
         <p>{convo.users.map(user => user.username).join(", ")}</p>
         <p>{convo.updated_at}</p>
