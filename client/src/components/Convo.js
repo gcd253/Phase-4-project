@@ -2,7 +2,7 @@ import Message from './components/Message'
 import NewMessage from './components/NewMessage'
 import {useState, useEffect} from 'react'
 
-function Convo({convo, user}){
+function Convo({convo, user, handleBack}){
 
     const [messages, setMessages] = useState([])
 
@@ -25,6 +25,7 @@ function Convo({convo, user}){
     }
 
     return <div>
+        <button onClick={handleBack}>Back</button>
         <div id="messages-container">
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
