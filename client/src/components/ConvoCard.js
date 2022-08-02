@@ -1,11 +1,13 @@
-
+import { useNavigate } from 'react-router-dom'
 
 function ConvoCard({convo, user}){
 
+    let navigate = useNavigate()
 
     function handleClick(){
         console.log('sucka!')
         //navigate to this convo's page
+
     }
     console.log(convo)
 

@@ -2,18 +2,18 @@ import Message from './components/Message'
 import NewMessage from './components/NewMessage'
 import {useState, useEffect} from 'react'
 
-function Convo({convo}){
+function Convo({convo, user}){
 
     const [messages, setMessages] = useState([])
 
     useEffect(()=>{
-        fetch("url")
+        fetch(`/conversations/${convo.id}/messages`)
         .then(res=>res.json())
         .then(data=>setMessages(data.messages))
     },[])
 
     function handleNewMessage(newMessage){
-        fetch("url",{
+        fetch("/messages",{
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(newMessage)
