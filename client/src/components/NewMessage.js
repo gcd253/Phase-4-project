@@ -1,8 +1,12 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function NewMessage({user, convo, sendMessage}){
 
-    const [newMessage, setNewMessage] = useState({user_id: user.id, message: "", conversation_id: convo.id})
+    const [newMessage, setNewMessage] = useState({})
+
+    useEffect(()=>{
+        setNewMessage = {user_id: user.id, message: "", conversation_id: convo.id}
+    },[])
 
     function handleSubmit(){
         sendMessage(newMessage)
@@ -13,7 +17,7 @@ function NewMessage({user, convo, sendMessage}){
     }
 
     return <form onSubmit={handleSubmit}>
-        <text-input value={newMessage.content} onChange={handleChange}></text-input>
+        <text-input value={newMessage.message} onChange={handleChange}></text-input>
     </form>
 }
 

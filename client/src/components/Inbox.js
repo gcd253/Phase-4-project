@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 function Inbox({user}){
 
     const [convos, setConvos] = useState([])
-    const [selectedMessage, setSelectedMessage] = useState([])
+    const [selected, setSelected] = useState([])
 
     //fix this
     useEffect(()=>{
@@ -17,19 +17,23 @@ function Inbox({user}){
         })
     },[])
 
+    function handleSelect(convo){
+        setSelected(convo)
+    }
+
     function handleBack(){
-        setSelectedMessage([])
+        setSelected([])
     }
 
     return (
         <div>
-        {(selectedMessage.length === 1)?
+        {(selected.length === 0)?
             <div id="container">
                 <h1>Welcome, {user.username}</h1>
-                <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user}/>)}
+                <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect}/>)}
                 </div>
             </div>:
-            <Convo convo={selectedMessage[0]} user={user} handleBack={handleBack}/>
+           <Convo convo={selected[0]} user={user} handleBack={handleBack}/>
         }</div>)
 }
 
