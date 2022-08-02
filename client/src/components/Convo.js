@@ -8,8 +8,10 @@ function Convo({convo, user, handleBack}){
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
 
+    console.log(convo)
+
     useEffect(()=>{
-        fetch(`/conversations/${convo.id}/messages`)
+        fetch(`/conversations/${convo.id}`)
         .then(res=>res.json())
         .then(data=>setMessages(data.messages))
     },[])
@@ -31,9 +33,9 @@ function Convo({convo, user, handleBack}){
         <div id="messages-container">
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
-        <div id="new-message">
+        {/* <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
-        </div>
+        </div> */}
     </div>
 }
 

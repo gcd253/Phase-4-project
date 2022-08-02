@@ -12,13 +12,15 @@ function Inbox({user}){
         fetch('/inbox')
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             setConvos(data)
         })
     },[])
 
     function handleSelect(convo){
-        setSelected(convo)
+        console.log(convo)
+        setSelected(selected.push(convo))
+        console.log(selected[0])
     }
 
     function handleBack(){
