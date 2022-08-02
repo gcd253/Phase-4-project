@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom"
 
-function Danger(){
+function Danger({user}){
+
+    const navigate = useNavigate()
 
     //todo: code timer
     const display = <h2 class="timer">5:00</h2>
@@ -18,6 +21,11 @@ function Danger(){
 
             if (--timer < 0) {
                 timer = duration;
+                fetch(`/user/${user.id}/`,{
+                    method: "DELETE",
+                    headers: {"Content-Type": "application/json"}
+                })
+                .then(navigate("/signup"))
         }   
         }, 1000)
     }

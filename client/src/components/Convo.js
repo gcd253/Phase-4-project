@@ -1,5 +1,5 @@
-import Message from './components/Message'
-import NewMessage from './components/NewMessage'
+import Message from './Message'
+import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
 
 function Convo({convo, user, handleBack}){
@@ -19,7 +19,7 @@ function Convo({convo, user, handleBack}){
             body: JSON.stringify(newMessage)
         })
         if(Math.random < .3){
-            navigate.push('/danger')
+            // navigate.push('/danger')
         }
         setMessages([...messages, newMessage])
     }
@@ -30,7 +30,7 @@ function Convo({convo, user, handleBack}){
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
         <div id="new-message">
-            <NewMessage convo={convo} sendMessage={handleNewMessage}/>
+            <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
     </div>
 }
