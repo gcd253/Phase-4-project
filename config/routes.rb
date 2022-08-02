@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :messages
   #resources :users
 
+  get "/inbox", to: "conversations#inbox"
   post '/login', to: 'sessions#create'
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
