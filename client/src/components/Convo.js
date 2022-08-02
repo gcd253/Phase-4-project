@@ -3,7 +3,7 @@ import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
 // import { useNavigate } from 'react-router-dom'
 
-function Convo({convo, user, handleBack}){
+function Convo({convo, user, handleBack, rescueId}){
 
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
@@ -11,9 +11,10 @@ function Convo({convo, user, handleBack}){
     console.log(convo)
 
     useEffect(()=>{
-        fetch(`/conversations/${convo.id}`)
+        fetch(`/conversations/1`)
         .then(res=>res.json())
         .then(data=>setMessages(data.messages))
+        .then(console.log(messages))
     },[])
 
     function handleNewMessage(newMessage){
@@ -31,7 +32,7 @@ function Convo({convo, user, handleBack}){
     return <div>
         <button onClick={handleBack}>Back</button>
         <div id="messages-container">
-        {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
+        {messages.map(message=><Message key={message.id} message={message} user={message.user}/>)}
         </div>
         {/* <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>

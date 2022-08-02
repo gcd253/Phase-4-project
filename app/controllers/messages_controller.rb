@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1
   def show
-    render json: @message
+    render json: @message, include: :user
   end
 
   # POST /messages
