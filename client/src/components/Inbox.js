@@ -7,7 +7,7 @@ function Inbox({user}){
 
     //fix this
     useEffect(()=>{
-        fetch('http://localhost:3000/conversations')
+        fetch('/inbox')
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -17,7 +17,7 @@ function Inbox({user}){
 
     return <div id="container">
         <h1>Welcome, {user.username}</h1>
-        <div id="inbox">{convos.map(convo=><ConvoCard id={convo.id} convo={convo} user={user}/>)}
+        <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user}/>)}
         </div>
         </div>;
 }
