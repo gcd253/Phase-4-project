@@ -1,10 +1,12 @@
 import Message from './components/Message'
 import NewMessage from './components/NewMessage'
 import {useState, useEffect} from 'react'
+// import { useNavigate } from 'react-router-dom'
 
 function Convo({convo, user}){
 
     const [messages, setMessages] = useState([])
+    // const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(`/conversations/${convo.id}/messages`)
@@ -18,9 +20,9 @@ function Convo({convo, user}){
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(newMessage)
         })
-        if(Math.random < .3){
-            navigate.push('/danger')
-        }
+        // if(Math.random < .3){
+        //     navigate('/danger')
+        // }
         setMessages([...messages, newMessage])
     }
 
