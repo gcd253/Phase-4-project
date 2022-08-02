@@ -8,13 +8,21 @@ function Convo({convo, user, handleBack}){
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
 
-    console.log(convo)
-
     useEffect(()=>{
+        (async () => {
+            const getMess = await fetchMessages();
+            setMessages(getMess);
+          })();
+          return () => {
+            console.log(messages)
+          };
+        },[])
+
+    function fetchMessages() {
         fetch(`/conversations/${convo.id}`)
-        .then(res=>res.json())
-        .then(data=>setMessages(data.messages))
-    },[])
+        // .then(res=>res.json())
+        // .then(data=>setMessages(data.messages))
+    }
 
     function handleNewMessage(newMessage){
         fetch("/messages",{

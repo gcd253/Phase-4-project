@@ -18,7 +18,7 @@ function Inbox({user}){
     },[])
 
     function handleSelect(convo){
-        console.log(convo)
+        // console.log(convo)
         setSelected(selected.push(convo))
         console.log(selected[0])
     }
@@ -31,11 +31,11 @@ function Inbox({user}){
         <div>
         {(selected.length === 0)?
             <div id="container">
-                <h1>Welcome, {user.username}</h1>
+                <h1 className="welcome-banner" >Welcome, {user.username}</h1>
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect}/>)}
                 </div>
             </div>:
-           <Convo convo={selected[0]} user={user} handleBack={handleBack}/>
+           <Convo convo={selected} user={user} handleBack={handleBack}/>
         }</div>)
 }
 
