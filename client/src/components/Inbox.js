@@ -5,6 +5,7 @@ function Inbox({user}){
 
     const [convos, setConvos] = useState([])
 
+    //fix this
     useEffect(()=>{
         fetch(`.../users/${user.id}/convos`)
         .then(res=>res.json)
