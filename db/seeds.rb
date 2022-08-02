@@ -14,4 +14,8 @@ end
     Message.create(message: Faker::Lorem.sentences(number: 1), user_id: User.ids.sample, conversation_id: Conversation.ids.sample)
 end
 
+100.times do
+    Member.create(user: User.all.sample, conversation: Conversation.all.sample)
+end
+
 puts 'seed planted! ✅'

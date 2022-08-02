@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
 
     def show
         convo = Conversation.find_by(id: params[:id])
-        render json: convo, status: :ok 
+        render json: convo, includes: :users, status: :ok 
     end
 
     def create
