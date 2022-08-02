@@ -1,9 +1,9 @@
-import Message from './components/Message'
-import NewMessage from './components/NewMessage'
+import Message from './Message'
+import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
 // import { useNavigate } from 'react-router-dom'
 
-function Convo({convo, user}){
+function Convo({convo, user, handleBack}){
 
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
@@ -27,11 +27,12 @@ function Convo({convo, user}){
     }
 
     return <div>
+        <button onClick={handleBack}>Back</button>
         <div id="messages-container">
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
         <div id="new-message">
-            <NewMessage convo={convo} sendMessage={handleNewMessage}/>
+            <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
     </div>
 }

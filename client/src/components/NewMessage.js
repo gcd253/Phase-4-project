@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function NewMessage({convo, sendMessage}){
+function NewMessage({user, convo, sendMessage}){
 
     const [newMessage, setNewMessage] = useState({user_id: user.id, message: "", conversation_id: convo.id})
 
