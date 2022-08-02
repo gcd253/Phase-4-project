@@ -8,8 +8,11 @@ function Inbox({user}){
     //fix this
     useEffect(()=>{
         fetch('http://localhost:3000/conversations')
-        .then(res=>res.json)
-        .then(data=>setConvos(data))
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            setConvos(data)
+        })
     },[])
 
     return <div id="container">

@@ -7,7 +7,7 @@ puts '🌱 seeding data...'
 end
 
 10.times do 
-    Conversation.create()
+    Conversation.create(name: Faker::Company.catch_phrase)
 end
 
 30.times do
