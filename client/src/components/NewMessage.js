@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 function NewMessage({convo, sendMessage}){
 
-    const [newMessage, setNewMessage] = useState({author: user, content: "", convo: convo})
+    const [newMessage, setNewMessage] = useState({user_id: user.id, message: "", conversation_id: convo.id})
 
     function handleSubmit(){
         sendMessage(newMessage)

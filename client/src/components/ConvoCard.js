@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 function ConvoCard({convo, user}){
 
-    const navigate = useNavigate()
-    
+    let navigate = useNavigate()
+
     function handleClick(){
         console.log(convo.id)
         //navigate to this convo's page
