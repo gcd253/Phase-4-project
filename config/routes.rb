@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :members
   resources :conversations
   resources :messages
-  resources :users
+  #resources :users
 
   post '/login', to: 'sessions#create'
   get "/me", to: "users#show"
