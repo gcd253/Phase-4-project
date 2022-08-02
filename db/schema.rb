@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2022_08_01_202335) do
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,11 +30,10 @@ ActiveRecord::Schema.define(version: 2022_08_01_202335) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "message"
-    t.integer "user_id"
-    t.integer "conversation_id"
+    t.text "chat_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
   end
 
   create_table "users", force: :cascade do |t|
