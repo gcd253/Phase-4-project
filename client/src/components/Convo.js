@@ -8,13 +8,10 @@ function Convo({convo, user, handleBack, rescueId}){
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
 
-    console.log(convo)
-
     useEffect(()=>{
         fetch(`/conversations/1`)
         .then(res=>res.json())
         .then(data=>setMessages(data.messages))
-        .then(console.log(messages))
     },[])
 
     function handleNewMessage(newMessage){
@@ -34,9 +31,9 @@ function Convo({convo, user, handleBack, rescueId}){
         <div id="messages-container">
         {messages.map(message=><Message key={message.id} message={message} user={message.user}/>)}
         </div>
-        {/* <div id="new-message">
+        <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
-        </div> */}
+        </div>
     </div>
 }
 
