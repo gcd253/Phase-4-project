@@ -16,7 +16,7 @@ function Inbox({user}){
     },[])
 
     return <div id="container">
-        <h1>Welcome, {user.name}</h1>
+        <h1>Welcome, {user.username}</h1>
         <div id="inbox">{convos.map(convo=><ConvoCard id={convo.id} convo={convo} user={user}/>)}
         </div>
         </div>;

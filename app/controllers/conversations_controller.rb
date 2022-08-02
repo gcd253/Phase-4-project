@@ -12,6 +12,11 @@ class ConversationsController < ApplicationController
         render json: convo, includes: :users, status: :ok 
     end
 
+    def inbox
+        convo = Conversation.all
+        render json: convo, includes: :users, status: :ok
+    end
+
     def create
         convo = Conversation.create!(convo_params)
         render json: convo, status: :created
