@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :members
   resources :conversations
   resources :messages
-  #resources :users
+  resources :users
 
   get "/inbox", to: "conversations#inbox"
   post '/login', to: 'sessions#create'

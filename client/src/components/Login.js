@@ -67,6 +67,7 @@ function Login({ onLogin }) {
       />
       <button className="form-button" type="submit">Submit</button>
     </form>
+    <button className="new-user-button" onClick={handleCreateAccount}>Sign Up</button>
     </div>
     );
   }

@@ -16,7 +16,7 @@ function Convo({convo, user, handleBack, rescueId}){
         fetch(`/conversations/${convo.id}`)
         .then(res=>res.json())
         .then(data=>{setMessages(data.messages)
-            console.log(data.messages)
+            // console.log(data.messages)
         })
     },[])
 
