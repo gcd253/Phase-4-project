@@ -51,7 +51,7 @@ function Inbox({user, onLogout}){
     }
 
     return (
-        <div>
+        <div id="inbox-container">
             <h1 id="banner">DANGER CHAT</h1>
             <button id="logout" onClick={handleLogout}>Logout</button>
         {(selected.length == 0)?
