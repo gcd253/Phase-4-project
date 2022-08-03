@@ -15,7 +15,7 @@ class ConversationsController < ApplicationController
     def inbox
         myConvos = Member.where(user_id: session[:user_id]).pluck(:conversation_id)
         convo = Conversation.all.filter{ |temp| myConvos.include?(temp.id)}
-        render json: convo, includes: :users, status: :ok
+        render json: convo.reverse, includes: :users, status: :ok
     end
 
     def create
