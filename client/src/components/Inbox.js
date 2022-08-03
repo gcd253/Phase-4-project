@@ -1,13 +1,15 @@
 import ConvoCard from './ConvoCard'
 import Convo from './Convo'
 import {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 import Loader from './Loader'
 
-function Inbox({user}){
+function Inbox({user, onLogout}){
 
     const [convos, setConvos] = useState([])
     const [selected, setSelected] = useState([])
     // let selection = false;
+    const navigate = useNavigate()
 
     //fix this
     useEffect(()=>{
@@ -44,8 +46,13 @@ function Inbox({user}){
         handleBack()
     }
 
+    function handleLogout(){
+        fetch('/logout').then(onLogout())
+    }
+
     return (
         <div>
+            <button onClick={handleLogout}>Logout</button>
         {(selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>

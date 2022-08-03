@@ -237,3 +237,14 @@ body {
 #total-danger {
   background-color: transparent;
 }
+
+#convo-container {
+  position: relative;
+}
+
+#new-messsage {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  z-index: 99;
+}

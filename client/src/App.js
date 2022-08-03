@@ -18,8 +18,12 @@ function App() {
     });
   }, []);
 
+  function handleLogout(){
+    setUser(null)
+  }
+
   if (user) {
-    return <Inbox user={user}/>;
+    return <Inbox user={user} onLogout={handleLogout}/>;
   } else {
     return <Login onLogin={setUser} />;
   }

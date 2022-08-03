@@ -20,7 +20,7 @@ function NewMessage({sendMessage, user}){
         setNewMessage(e.target.value)
     }
 
-    return <div>
+    return <div id="message-container">
         <h3>New message:</h3>
         <form onSubmit={handleSubmit}>
         <input type="text" value={newMessage} onChange={handleChange}/>
