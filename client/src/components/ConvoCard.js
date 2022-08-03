@@ -7,6 +7,7 @@ function ConvoCard({convo, user, handleSelect}){
     function handleClick(){
         handleSelect(convo)
         //navigate to this convo's page
+        console.log(convo)
 
     }
 
