@@ -18,9 +18,7 @@ function Inbox({user}){
     },[])
 
     function handleSelect(convo){
-        // console.log(convo)
         setSelected(selected.push(convo))
-        console.log(selected[0])
     }
 
     function handleBack(){

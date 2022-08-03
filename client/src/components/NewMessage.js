@@ -4,10 +4,8 @@ function NewMessage({user, convo, sendMessage}){
 
     const [newMessage, setNewMessage] = useState({})
 
-    console.log(convo)
-
     useEffect(()=>{
-        setNewMessage = {user_id: user.id, message: "", conversation_id: convo.id}
+        setNewMessage({user_id: user.id, message: "", conversation_id: 1})
     },[])
 
     function handleSubmit(){
@@ -18,9 +16,12 @@ function NewMessage({user, convo, sendMessage}){
         setNewMessage(e.target.value)
     }
 
-    return <form onSubmit={handleSubmit}>
-        <text-input value={newMessage.message} onChange={handleChange}></text-input>
-    </form>
+    return <div>
+        <h3>New message:</h3>
+        <form onSubmit={handleSubmit}>
+        <input type="text" value={newMessage.message} onChange={handleChange}/>
+        <input type="submit" value="Submit" />
+    </form></div>
 }
 
 
