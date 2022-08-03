@@ -11,6 +11,7 @@ function Inbox({user, onLogout}){
     const [selected, setSelected] = useState([])
     // let selection = false;
     const [showForm, setShowForm] = useState(false)
+    const [newConvo, setNewConvo] = useState(false)
 
     const navigate = useNavigate()
 
@@ -55,22 +56,29 @@ function Inbox({user, onLogout}){
 
     function handleAddConvo(newConvo) {
         setConvos(...convos, newConvo)
+        setNewConvo(false)
+    }
+
+    function handleCreateConvo(){
+        setNewConvo(true)
     }
 
     return (
-        <div>
+        <div id="inbox-container">
             <h1 id="banner">DANGER CHAT</h1>
             <button id="logout" onClick={handleLogout}>Logout</button>
-        {(selected.length == 0)?
+        {(newConvo == true)?
+        <NewConvo user={user} onAddConvo={handleAddConvo} />:
+        ((selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
                 {/* <NewConvo user={user} onAddConvo={handleAddConvo} /> */}
-                <button className="back-button add-new" onClick={handleClick}>+</button>
+                <button className="back-button add-new" onClick={handleCreateConvo}>+</button>
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:
            <Convo convo={selected[0]} user={user} handleBack={handleBack} onLeaveChat={handleLeave} handleLogout={onLogout}/>
-        }</div>)
+        )}</div>)
 }
 
 export default Inbox

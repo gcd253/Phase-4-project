@@ -137,8 +137,8 @@ body {
   color: #272727;
   background-color: pink;
   margin-right: 35px;
-  /* position: absolute; */
-  right: 0;
+  position: relative;
+  left: 20vh;
   border-radius: 20px 20px 0px 20px;
 }
 
@@ -266,6 +266,17 @@ body {
 }
 
 #messages-container {
-  height: 60vh;
+  height: 59vh;
   overflow:auto;
+}
+
+#new-message-lable {
+  color: rgb(71, 210, 228);
+}
+
+#text-input {
+  width: 50%;
+  height: 50px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
