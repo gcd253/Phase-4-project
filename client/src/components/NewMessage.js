@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 
-function NewMessage({user, convo, sendMessage}){
+function NewMessage({sendMessage, user}){
 
-    const [newMessage, setNewMessage] = useState({})
+    const [newMessage, setNewMessage] = useState("")
 
     useEffect(()=>{
         setNewMessage({user_id: user.id, message: "", conversation_id: 1})
@@ -10,7 +10,6 @@ function NewMessage({user, convo, sendMessage}){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(e)
         sendMessage(newMessage)
     }
 
