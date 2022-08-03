@@ -15,14 +15,8 @@ class MembersController < ApplicationController
 
   # POST /members
   def create
-    user = User.find_by(id: session[:id])
-    receipient = User.find_by(username: params[:username])
-
-    member = Member.create!(user_id: user.id)
-    recip_member = Member.create!(user_id: receipient.id, conversation_id: member.id)
-
+    member = Member.create!(member_params)
     render json: member, status: :created
-
   end
 
   # PATCH/PUT /members/1

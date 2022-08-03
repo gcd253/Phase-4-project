@@ -47,7 +47,7 @@ const NewConvo = ({user, onAddConvo}) => {
   }
 
   return (
-    <form>
+    <form >
         <label>Chat name:</label>
         <input onChange={handleChange} type="text" value={newConvoName}/>
         <label>Add your friends:</label>
