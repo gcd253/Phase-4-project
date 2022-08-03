@@ -1,12 +1,14 @@
 import Message from './Message'
+import Danger from './Danger'
 import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Convo({convo, user, handleBack, rescueId, handleClick}){
 
     const [messages, setMessages] = useState([])
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [danger, setDanger] = useState(false)
 
     // console.log(convo)
 
@@ -29,13 +31,17 @@ function Convo({convo, user, handleBack, rescueId, handleClick}){
             body: JSON.stringify(newMessage)
         }).then(res=>res.json())
         .then(data=>setMessages([...messages, data]))
-        // if(Math.random < .3){
-        //     navigate('/danger')
-        // }
+        if(Math.random() < .3){
+            console.log("danger!")
+            setDanger(true)
+        }
         
     }
 
-    return <div>
+    return <div id="convo-container">
+        {danger?
+        <Danger />:
+        <div>
         <button className="back-button" onClick={handleBack}>⬅</button>
         <div id="messages-container">
         {messages.map(message=><Message username={user.username} key={message.id} message={message} user={message.user}/>)}
@@ -44,6 +50,8 @@ function Convo({convo, user, handleBack, rescueId, handleClick}){
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
         <button onClick={() => handleClick(convo.id)}>Leave Chat</button>
+        </div>}
+
     </div>
 }
 
