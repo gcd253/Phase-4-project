@@ -4,7 +4,7 @@ import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Convo({convo, user, handleBack, rescueId, handleClick}){
+function Convo({convo, user, handleBack, rescueId, onLeaveChat}){
 
     const [messages, setMessages] = useState([])
     const navigate = useNavigate();
@@ -38,6 +38,11 @@ function Convo({convo, user, handleBack, rescueId, handleClick}){
         
     }
 
+    function handleLeave() {
+        const memberId = convo.members.filter(member => member.user_id == user.id)
+        onLeaveChat(memberId[0])
+    }
+
     return <div id="convo-container">
         {danger?
         <Danger />:
@@ -49,7 +54,7 @@ function Convo({convo, user, handleBack, rescueId, handleClick}){
         <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
-        <button onClick={() => handleClick(convo.id)}>Leave Chat</button>
+        <button onClick={handleLeave}>Leave Chat</button>
         </div>}
 
     </div>

@@ -30,11 +30,18 @@ function Inbox({user}){
         console.log('Create a new conversation and invite members')
     }
 
-    function handleLeave(convoId) {
-        fetch(`/members/${convoId}`, {
-            method: "DELETE"
+    function handleLeave(member) {
+        fetch(`/members/${member.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        }).then(r => r.json())
+        .then(data => {
+            setConvos(convos.filter(convo => convo.id !== data.convo_id))
         })
-        console.log(convoId)
+        
+        handleBack()
     }
 
     return (
@@ -46,7 +53,7 @@ function Inbox({user}){
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:
-           <Convo convo={selected[0]} user={user} handleBack={handleBack} handleClick={handleLeave} />
+           <Convo convo={selected[0]} user={user} handleBack={handleBack} onLeaveChat={handleLeave} />
         }</div>)
 }
 

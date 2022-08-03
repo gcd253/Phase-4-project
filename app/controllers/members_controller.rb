@@ -36,6 +36,7 @@ class MembersController < ApplicationController
   # DELETE /members/1
   def destroy
     @member.destroy
+    render json: @member, status: :ok
   end
 
   private
