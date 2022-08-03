@@ -3,7 +3,7 @@ import NewMessage from './NewMessage'
 import {useState, useEffect} from 'react'
 // import { useNavigate } from 'react-router-dom'
 
-function Convo({convo, user, handleBack, rescueId}){
+function Convo({convo, user, handleBack, rescueId, handleClick}){
 
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
@@ -43,6 +43,7 @@ function Convo({convo, user, handleBack, rescueId}){
         <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
+        <button onClick={() => handleClick(convo.id)}>Leave Chat</button>
     </div>
 }
 

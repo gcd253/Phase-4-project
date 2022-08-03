@@ -30,6 +30,13 @@ function Inbox({user}){
         console.log('Create a new conversation and invite members')
     }
 
+    function handleLeave(convoId) {
+        fetch(`/members/${convoId}`, {
+            method: "DELETE"
+        })
+        console.log(convoId)
+    }
+
     return (
         <div>
         {(selected.length == 0)?
@@ -39,7 +46,7 @@ function Inbox({user}){
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:
-           <Convo convo={selected[0]} user={user} handleBack={handleBack}/>
+           <Convo convo={selected[0]} user={user} handleBack={handleBack} handleClick={handleLeave} />
         }</div>)
 }
 
