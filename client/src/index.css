@@ -111,3 +111,25 @@ body {
   transform: scale(1.05);
   color: hsl(0, 0%, 20%);
 }
+
+.messages-div {
+  background-color: hsl(0, 0%, 14%);
+  color: rgb(169, 169, 169);
+  padding-left: 15px;
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  margin-left: 35px;
+  margin-bottom: 15px;
+  border-radius: 20px 20px 20px 0px;
+  width: 40%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.messages-div.user-messages {
+  color: #272727;
+  background-color: pink;
+  margin-right: 35px;
+  /* position: absolute; */
+  right: 0;
+  border-radius: 20px 20px 0px 20px;
+}

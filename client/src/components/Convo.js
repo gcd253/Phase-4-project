@@ -35,7 +35,7 @@ function Convo({convo, user, handleBack, rescueId}){
     return <div>
         <button className="back-button" onClick={handleBack}>⬅</button>
         <div id="messages-container">
-        {messages.map(message=><Message key={message.id} message={message} user={message.user}/>)}
+        {messages.map(message=><Message username={user.username} key={message.id} message={message} user={message.user}/>)}
         </div>
         <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>

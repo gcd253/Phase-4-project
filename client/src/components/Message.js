@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-function Message({message}){
+function Message({message, username}){
 
     const [actualMessage, setActualMessage] = useState({user:{username: "loading..."}})
 
@@ -10,8 +10,11 @@ function Message({message}){
         .then(data=>setActualMessage(data))
     },[])
     
+    console.log(username.username)
+    console.log('------separate------')
+    console.log(actualMessage.user.username)
 
-    return <div id={message.id}>
+    return <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>
         <p>{actualMessage.user.username} says:</p>
         <p>{message.message}</p>
         <p>{message.created_at}</p>
