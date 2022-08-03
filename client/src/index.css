@@ -95,7 +95,7 @@ body {
 }
 
 .back-button {
-  color: #272727;
+  color: rgb(152, 152, 152);;
   margin-top: 10px;
   margin-left: 15px;
   padding-right: 20px;
@@ -109,7 +109,15 @@ body {
 .back-button:hover {
   cursor: pointer;
   transform: scale(1.05);
-  color: hsl(0, 0%, 20%);
+  color: rgb(169, 169, 169);
+}
+
+.back-button.add-new {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 22px;
+  margin-right: 65px;
 }
 
 .messages-div {

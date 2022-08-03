@@ -26,11 +26,16 @@ function Inbox({user}){
         setSelected([])
     }
 
+    function handleClick() {
+        console.log('Create a new conversation and invite members')
+    }
+
     return (
         <div>
         {(selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
+                <button className="back-button add-new" onClick={handleClick}>+</button>
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:

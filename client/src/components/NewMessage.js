@@ -11,6 +11,7 @@ function NewMessage({sendMessage, user}){
     function handleSubmit(e){
         e.preventDefault()
         sendMessage(newMessage)
+        setNewMessage("")
     }
 
     // console.log(convo) number 1
