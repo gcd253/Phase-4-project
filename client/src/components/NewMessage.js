@@ -4,9 +4,9 @@ function NewMessage({sendMessage, user}){
 
     const [newMessage, setNewMessage] = useState("")
 
-    useEffect(()=>{
-        setNewMessage({user_id: user.id, message: "", conversation_id: 1})
-    },[])
+    // useEffect(()=>{
+    //     setNewMessage({user_id: user.id, message: "", conversation_id: 1})
+    // },[])
 
     function handleSubmit(e){
         e.preventDefault()
@@ -22,7 +22,7 @@ function NewMessage({sendMessage, user}){
     return <div>
         <h3>New message:</h3>
         <form onSubmit={handleSubmit}>
-        <input type="text" value={newMessage.message} onChange={handleChange}/>
+        <input type="text" value={newMessage} onChange={handleChange}/>
         <input type="submit" value="Send" />
     </form></div>
 }
