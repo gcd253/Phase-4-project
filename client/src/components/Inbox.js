@@ -3,12 +3,15 @@ import Convo from './Convo'
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Loader from './Loader'
+import NewConvo from './NewConvo'
 
 function Inbox({user, onLogout}){
 
     const [convos, setConvos] = useState([])
     const [selected, setSelected] = useState([])
     // let selection = false;
+    const [showForm, setShowForm] = useState(false)
+
     const navigate = useNavigate()
 
     //fix this
@@ -29,7 +32,7 @@ function Inbox({user, onLogout}){
     }
 
     function handleClick() {
-        console.log('Create a new conversation and invite members')
+        setShowForm(true)
     }
 
     function handleLeave(member) {
@@ -50,12 +53,17 @@ function Inbox({user, onLogout}){
         fetch('/logout').then(onLogout())
     }
 
+    function handleAddConvo(newConvo) {
+        setConvos(...convos, newConvo)
+    }
+
     return (
         <div>
             <button onClick={handleLogout}>Logout</button>
         {(selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
+                {/* <NewConvo user={user} onAddConvo={handleAddConvo} /> */}
                 <button className="back-button add-new" onClick={handleClick}>+</button>
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>

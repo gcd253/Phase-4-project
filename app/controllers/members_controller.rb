@@ -15,13 +15,14 @@ class MembersController < ApplicationController
 
   # POST /members
   def create
-    @member = Member.new(member_params)
+    user = User.find_by(id: session[:id])
+    receipient = User.find_by(username: params[:username])
 
-    if @member.save
-      render json: @member, status: :created, location: @member
-    else
-      render json: @member.errors, status: :unprocessable_entity
-    end
+    member = Member.create!(user_id: user.id)
+    recip_member = Member.create!(user_id: receipient.id, conversation_id: member.id)
+
+    render json: member, status: :created
+
   end
 
   # PATCH/PUT /members/1
