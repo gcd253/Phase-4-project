@@ -11,7 +11,7 @@ function Convo({convo, user, handleBack, rescueId}){
     // console.log(convo)
 
     useEffect(()=>{
-        fetch(`/conversations/1`)
+        fetch(`/conversations/${convo.id}`)
         .then(res=>res.json())
         .then(data=>{setMessages(data.messages)
             console.log(data.messages)

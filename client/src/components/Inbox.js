@@ -14,19 +14,9 @@ function Inbox({user}){
         fetch('/inbox')
         .then(res=>res.json())
         .then(data=>{
-            // console.log(data)
             setConvos(data)
         })
     },[])
-
-    // useEffect(()=>{
-    //     console.log("triggered")
-    //     if(selected.length > 0){
-    //         selection = true
-    //     }else{
-    //         selection = false
-    //     }
-    // },[selected])
 
     function handleSelect(convo){
         setSelected([convo])
@@ -35,7 +25,7 @@ function Inbox({user}){
     function handleBack(){
         setSelected([])
     }
-    // console.log(selected) number 1
+
     return (
         <div>
         {(selected.length == 0)?
