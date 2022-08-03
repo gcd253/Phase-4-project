@@ -61,7 +61,6 @@ code {
 }
 
 .convo-card {
-  background-color: rgb(183, 183, 183);
   padding-left: 15px;
   box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
   margin-left: 35px;
@@ -78,6 +77,7 @@ code {
 .convo-card:hover {
   cursor: pointer;
   transform: scale(1.02);
+  background-color: hsl(0, 0%, 20%);
 }
 
 .container {
@@ -92,4 +92,22 @@ body {
 .welcome-banner {
   color: rgb(169, 169, 169);
   margin-left: 55px;
+}
+
+.back-button {
+  color: #272727;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding-right: 20px;
+  font-size: xx-large;
+  font-weight: 500;
+  transition: 0.2s;
+  border: none;
+  background-color: hsl(0, 0%, 8%);
+}
+
+.back-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  color: hsl(0, 0%, 20%);
 }

@@ -9,19 +9,15 @@ function Convo({convo, user, handleBack}){
     // const navigate = useNavigate();
 
     useEffect(()=>{
-        (async () => {
-            const getMess = await fetchMessages();
-            setMessages(getMess);
-          })();
-          return () => {
-            console.log(messages)
-          };
-        },[])
+        fetch(`/conversations/${convo.id}`)
+        .then(res=>res.json())
+        .then(data=>setMessages(data.messages))
+    },[])
 
     function fetchMessages() {
         fetch(`/conversations/${convo.id}`)
-        // .then(res=>res.json())
-        // .then(data=>setMessages(data.messages))
+        .then(res=>res.json())
+        .then(data=>setMessages(data.messages))
     }
 
     function handleNewMessage(newMessage){
@@ -37,7 +33,7 @@ function Convo({convo, user, handleBack}){
     }
 
     return <div>
-        <button onClick={handleBack}>Back</button>
+        <button className="back-button" onClick={handleBack}>⬅</button>
         <div id="messages-container">
         {messages.map(message=><Message id={message.id} message={message} user={user}/>)}
         </div>
