@@ -14,11 +14,8 @@ const NewConvo = ({user, onAddConvo}) => {
 
   function handleAddFriend(friend) {
     if(added.includes(friend)){
-      setAdded(added.filter(pal => {friend.id !== pal.id}))
-    }
-      else{
-        setAdded(...added, friend)
-      }
+      setAdded(added.filter(pal => friend.id !== pal.id))}
+      else{setAdded(...added, friend)}
   }
 
   function handleSubmit(e) {
