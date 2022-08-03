@@ -11,19 +11,26 @@ function Convo({convo, user, handleBack, rescueId}){
     useEffect(()=>{
         fetch(`/conversations/1`)
         .then(res=>res.json())
-        .then(data=>setMessages(data.messages))
+        .then(data=>{setMessages(data.messages)
+            console.log(data.messages)
+        })
     },[])
 
-    function handleNewMessage(newMessage){
+    function handleNewMessage(input){
+
+        console.log(user)
+        console.log(convo)
+        let newMessage = {user: user, message: input, conversation_id: 1}
         fetch("/messages",{
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(newMessage)
-        })
+        }).then(res=>res.json())
+        .then(data=>setMessages([...messages, data]))
         // if(Math.random < .3){
         //     navigate('/danger')
         // }
-        setMessages([...messages, newMessage])
+        
     }
 
     return <div>
