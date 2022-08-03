@@ -8,9 +8,13 @@ function NewMessage({user, convo, sendMessage}){
         setNewMessage({user_id: user.id, message: "", conversation_id: 1})
     },[])
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(e)
         sendMessage(newMessage)
     }
+
+    // console.log(convo) number 1
 
     function handleChange(e){
         setNewMessage(e.target.value)
@@ -20,7 +24,7 @@ function NewMessage({user, convo, sendMessage}){
         <h3>New message:</h3>
         <form onSubmit={handleSubmit}>
         <input type="text" value={newMessage.message} onChange={handleChange}/>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Send" />
     </form></div>
 }
 

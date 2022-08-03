@@ -11,7 +11,6 @@ function Message({message, username}){
     },[])
     
     console.log(username.username)
-    console.log('------separate------')
     console.log(actualMessage.user.username)
 
     return <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>

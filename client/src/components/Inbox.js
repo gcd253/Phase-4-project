@@ -1,6 +1,7 @@
 import ConvoCard from './ConvoCard'
 import Convo from './Convo'
 import {useState, useEffect} from 'react'
+import Loader from './Loader'
 
 function Inbox({user}){
 
@@ -19,12 +20,13 @@ function Inbox({user}){
 
     function handleSelect(convo){
         setSelected(selected.push(convo))
+        console.log(convo)
     }
 
     function handleBack(){
         setSelected([])
     }
-
+    // console.log(selected) number 1
     return (
         <div>
         {(selected.length === 0)?
