@@ -6,6 +6,7 @@ function Inbox({user}){
 
     const [convos, setConvos] = useState([])
     const [selected, setSelected] = useState([])
+    // let selection = false;
 
     //fix this
     useEffect(()=>{
@@ -17,8 +18,17 @@ function Inbox({user}){
         })
     },[])
 
+    // useEffect(()=>{
+    //     console.log("triggered")
+    //     if(selected.length > 0){
+    //         selection = true
+    //     }else{
+    //         selection = false
+    //     }
+    // },[selected])
+
     function handleSelect(convo){
-        setSelected(selected.push(convo))
+        setSelected([convo])
     }
 
     function handleBack(){
@@ -27,13 +37,13 @@ function Inbox({user}){
 
     return (
         <div>
-        {(selected.length === 0)?
+        {(selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
-                <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect}/>)}
+                <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:
-           <Convo convo={selected} user={user} handleBack={handleBack}/>
+           <Convo convo={selected[0]} user={user} handleBack={handleBack}/>
         }</div>)
 }
 

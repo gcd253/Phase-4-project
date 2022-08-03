@@ -8,6 +8,8 @@ function Convo({convo, user, handleBack, rescueId}){
     const [messages, setMessages] = useState([])
     // const navigate = useNavigate();
 
+    // console.log(convo)
+
     useEffect(()=>{
         fetch(`/conversations/1`)
         .then(res=>res.json())
@@ -20,7 +22,7 @@ function Convo({convo, user, handleBack, rescueId}){
 
         console.log(user)
         console.log(convo)
-        let newMessage = {user: user, message: input, conversation_id: 1}
+        let newMessage = {"user_id": user.id, "message": input, "conversation_id": 1}
         fetch("/messages",{
             method: "POST",
             headers: {"Content-Type":"application/json"},
