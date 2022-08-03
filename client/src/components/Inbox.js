@@ -51,7 +51,7 @@ function Inbox({user, onLogout}){
     }
 
     function handleLogout(){
-        fetch('/logout').then(onLogout())
+        fetch('/logout', {method: "DELETE", headers:{"Content-Type":"application/json"}}).then(onLogout())
     }
 
     function handleAddConvo(newConvo) {

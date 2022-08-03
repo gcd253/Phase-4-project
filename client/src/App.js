@@ -3,6 +3,8 @@ import {useEffect, useState} from 'react'
 import Inbox from './components/Inbox'
 import Login from './components/Login'
 import { useNavigate } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
+import SignUp from './components/SignUp'
 
 
 function App() {
@@ -25,7 +27,12 @@ function App() {
   if (user) {
     return <Inbox user={user} onLogout={handleLogout}/>;
   } else {
-    return <Login onLogin={setUser} />;
+    return(
+    <Routes>
+      <Route path="/" element={<Login onLogin={setUser} />}/>
+      <Route path="/login" element={<Login onLogin={setUser} />}/>
+      <Route path="/SignUp" element={<SignUp/>}/>
+    </Routes>)
   }
 }
 
