@@ -55,7 +55,7 @@ function Inbox({user, onLogout}){
     }
 
     function handleAddConvo(newConvo) {
-        setConvos(...convos, newConvo)
+        setConvos([...convos, newConvo])
         setNewConvo(false)
     }
 
