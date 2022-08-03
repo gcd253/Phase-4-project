@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Danger({user}){
+function Danger({user, handleLogout}){
 
     //todo: code timer
     const [display, setDisplay] = useState("5:00")
