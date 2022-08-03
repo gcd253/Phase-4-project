@@ -59,7 +59,8 @@ function Inbox({user, onLogout}){
 
     return (
         <div>
-            <button onClick={handleLogout}>Logout</button>
+            <h1 id="banner">DANGER CHAT</h1>
+            <button id="logout" onClick={handleLogout}>Logout</button>
         {(selected.length == 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
@@ -68,7 +69,7 @@ function Inbox({user, onLogout}){
                 <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
                 </div>
             </div>:
-           <Convo convo={selected[0]} user={user} handleBack={handleBack} onLeaveChat={handleLeave} />
+           <Convo convo={selected[0]} user={user} handleBack={handleBack} onLeaveChat={handleLeave} handleLogout={onLogout}/>
         }</div>)
 }
 
