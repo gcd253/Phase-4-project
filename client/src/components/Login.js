@@ -18,7 +18,10 @@ function Login({ onLogin }) {
         body: JSON.stringify({ username, password}),
       })
         .then((r) => r.json())
-        .then((user) => onLogin(user));
+        .then((user) => {
+          if(user.id){onLogin(user)}
+          }
+          );
     }
 
     function handleCreateAccount(){
@@ -37,7 +40,6 @@ function Login({ onLogin }) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <label className="form-label" htmlFor="email">Email:</label>
       <label className="form-label" htmlFor="password">Password:</label>
       <input
         className="form-input"
