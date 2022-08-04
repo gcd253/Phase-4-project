@@ -12,6 +12,11 @@ class ConversationsController < ApplicationController
         render json: convo, includes: :users, status: :ok 
     end
 
+    def update
+        convo = Conversation.find_by(id: params[:id])
+        render json: convo, status: :ok
+    end
+
     def inbox
         myConvos = Member.where(user_id: session[:user_id]).pluck(:conversation_id)
         convo = Conversation.all.filter{ |temp| myConvos.include?(temp.id)}
