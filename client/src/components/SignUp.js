@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function SignUp({ onLogin }) {
+function SignUp({ onLogin, setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -23,7 +23,15 @@ function SignUp({ onLogin }) {
       }),
     })
       .then((r) => r.json())
-      .then(navigate('/login'));
+      .then(fetchForInbox);
+  }
+
+  function fetchForInbox() {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
   }
 
   return (

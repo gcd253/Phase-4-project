@@ -29,7 +29,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Login onLogin={setUser} />}/>
       <Route path="/login" element={<Login onLogin={setUser} />}/>
-      <Route path="/SignUp" element={<SignUp/>}/>
+      <Route path="/SignUp" element={<SignUp setUser={setUser}/>}/>
     </Routes>)
   }
 }
