@@ -4,7 +4,7 @@ function Message({message, user, formatDateTime}){
 
     console.log(message)
 
-    const [actualMessage, setActualMessage] = useState({user:{username: "loading..."}})
+    const [actualMessage, setActualMessage] = useState({user:{username: "..."}})
 
     useEffect(()=>{
         fetch(`/messages/${message.id}`)
@@ -13,11 +13,11 @@ function Message({message, user, formatDateTime}){
     },[message.id])
 
     return <div id="message-container">
-        <div className={`messages-div${actualMessage.user.id === user.id ? " user-messages" : ""}`} id={message.id}>
+        <div className={`messages-div${message.user_id === user.id ? " user-messages" : ""}`} id={message.id}>
         <p>{actualMessage.user.username} says:</p>
         <p>{message.message}</p>
     </div>
-        <div className={`message-time${actualMessage.user.username === user.username ? " user-timestamp" : ""}`}>
+        <div className={`message-time${message.user_id === user.id ? " user-timestamp" : ""}`}>
             <p>{formatDateTime(message.created_at)}</p>
         </div>
     </div> 
