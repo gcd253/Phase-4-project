@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [email, setEmail] = useState("");
+
 
     const navigate = useNavigate();
   
@@ -16,7 +15,7 @@ function Login({ onLogin }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password, email, password_confirmation: passwordConfirmation }),
+        body: JSON.stringify({ username, password}),
       })
         .then((r) => r.json())
         .then((user) => onLogin(user));
@@ -39,14 +38,6 @@ function Login({ onLogin }) {
         onChange={(e) => setUsername(e.target.value)}
       />
       <label className="form-label" htmlFor="email">Email:</label>
-      <input
-        className="form-input"
-        placeholder="Email address"
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
       <label className="form-label" htmlFor="password">Password:</label>
       <input
         className="form-input"
@@ -55,15 +46,6 @@ function Login({ onLogin }) {
         id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      />
-      <label className="form-label" htmlFor="password_confirmation">Confirm Password:</label>
-      <input
-        className="form-input"
-        placeholder="Confirm password"
-        type="password"
-        id="password_confirmation"
-        value={passwordConfirmation}
-        onChange={(e) => setPasswordConfirmation(e.target.value)}
       />
       <button className="form-button" type="submit">Submit</button>
     </form>
