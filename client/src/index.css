@@ -475,5 +475,10 @@ body {
 
 .convo-title {
   font-weight: 200;
-  font-size: 15px;
+  font-size: 18px;
+}
+
+.convo-time {
+  font-size: x-small;
+  font-weight: 250;
 }
