@@ -6,8 +6,13 @@ import { useState, useEffect } from 'react'
 function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger, formatDateTime }) {
 
     const [messages, setMessages] = useState([])
+<<<<<<< HEAD
     const [edit, setEdit] = useState(false)
     const [convoName, setConvoName] = useState(convo.name)
+=======
+    const [convoName, setConvoName] = useState(convo.name)
+    const [edit, setEdit] = useState(false)
+>>>>>>> glix
 
     useEffect(() => {
         fetch(`/conversations/${convo.id}`)
@@ -74,6 +79,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
                 <div>{edit?
                 <input onSubmit={handleNewName}></input>:
                 <h1 onClick={()=>{setEdit(true)}} className="convo-title">{convo.name}</h1>}</div>
+
                 <button className="back-button" onClick={handleBack}>⬅</button>
                 <div className="convo" id="messages-container">
                     {messages.map(message =>
