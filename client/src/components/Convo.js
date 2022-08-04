@@ -6,34 +6,33 @@ import {useState, useEffect} from 'react'
 function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger}){
 
     const [messages, setMessages] = useState([])
-    // const [danger, setDanger] = useState(false)
-
-    // console.log(convo)
 
     useEffect(()=>{
         fetch(`/conversations/${convo.id}`)
         .then(res=>res.json())
         .then(data=>{setMessages(data.messages)
-            // console.log(data.messages)
         })
     },[])
 
+    useEffect(()=>{
+        scrollToBottom("messages-container")
+    },[messages])
+
     function handleNewMessage(input){
 
-        console.log(input)
         let newMessage = {"user_id": user.id, "message": input, "conversation_id": convo.id}
+        
         fetch("/messages",{
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(newMessage)
         }).then(res=>res.json())
         .then(data=>{
-            console.log(data)
             setMessages([...messages, data])
         })
+        
         if(Math.random() < .3){
             console.log("danger!")
-            // setDanger(true)
             onDanger()
         }
         
@@ -44,12 +43,19 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
         onLeaveChat(memberId[0])
     }
 
+    const scrollToBottom = (id) => {
+        if(!danger){
+        const element = document.getElementById(id);
+        element.scrollTop = element.scrollHeight;
+        }
+    }
+
     return <div id="convo-container">
         {danger?
         <Danger user={user} handleLogout={handleLogout}/>:
         <div>
         <button className="back-button" onClick={handleBack}>⬅</button>
-        <div id="messages-container">
+        <div className="convo" id="messages-container">
         {messages.map(message=>
             <Message
                 username={user.username}

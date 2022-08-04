@@ -16,10 +16,6 @@ function Message({message, username}){
         .then(res=>res.json())
         .then(data=>setActualMessage(data))
     },[message.id])
-    
-    // console.log(username.username)
-    // console.log('------separate------')
-    // console.log(actualMessage.user.username)
 
     return <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>
         <p>{actualMessage.user.username} says:</p>
