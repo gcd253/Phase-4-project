@@ -126,7 +126,7 @@ body {
   color: rgb(169, 169, 169);
   padding-left: 15px;
   box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
-  margin-left: 35px;
+  margin-left: 150px;
   margin-bottom: 15px;
   border-radius: 20px 20px 20px 0px;
   width: 40%;
@@ -441,11 +441,11 @@ body {
   color: white;
   margin-right: 35px;
   position: relative;
-  left: 7vh;
+  left: 20vh;
 }
 
 .message-time.user-timestamp {
-  left: 80vh;
+  left: 100vh;
 }
 
 #message-container {
