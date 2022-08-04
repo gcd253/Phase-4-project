@@ -62,6 +62,13 @@ function Inbox({user, onLogout}){
         setDanger(true)
     }
 
+    function formatDateTime(dateString) {
+        const dateTime = new Date(dateString)
+        const array = dateTime.toString().split("", 21)
+
+        return array
+    }
+
     return (
         <div id="inbox-container">
             <h1 id="banner">DANGER CHAT</h1>
@@ -77,6 +84,7 @@ function Inbox({user, onLogout}){
                         key={convo.id}
                         convo={convo}
                         handleSelect={handleSelect}
+                        formatDateTime={formatDateTime}
                     />)}
                 </div>
             </div>:
@@ -88,6 +96,7 @@ function Inbox({user, onLogout}){
                 handleLogout={onLogout}
                 danger={danger}
                 onDanger={handleDanger}
+                formatDateTime={formatDateTime}
             />
         )}</div>)
 }

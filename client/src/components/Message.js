@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react'
 
-function Message({ message, username }) {
+function Message({message, user, formatDateTime}){
 
-    const [actualMessage, setActualMessage] = useState({ user: { username: "loading..." } })
-
-    function formatDateTime(dateString) {
-        const dateTime = new Date(dateString)
-        const array = dateTime.toString().split("", 21)
-
-        return array
-    }
+    const [actualMessage, setActualMessage] = useState({user:{username: "..."}})
 
     useEffect(() => {
         fetch(`/messages/${message.id}`)
@@ -17,15 +10,15 @@ function Message({ message, username }) {
             .then(data => setActualMessage(data))
     }, [message.id])
 
-    return (<div id="message-container">
-        <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>
-            <p>{actualMessage.user.username} says:</p>
-            <p>{message.message}</p>
-        </div>
-        <div className={`message-time${actualMessage.user.username === username ? " user-timestamp" : ""}`}>
+    return <div id="message-container">
+        <div className={`messages-div${message.user_id === user.id ? " user-messages" : ""}`} id={message.id}>
+        <p>{actualMessage.user.username} says:</p>
+        <p>{message.message}</p>
+    </div>
+        <div className={`message-time${message.user_id === user.id ? " user-timestamp" : ""}`}>
             <p>{formatDateTime(message.created_at)}</p>
         </div>
-    </div>) 
+    </div>
 }
 
 export default Message
