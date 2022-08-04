@@ -433,7 +433,9 @@ body {
   color: white;
 
   position: relative;
+
   left: 2vh;
+
 }
 
 .message-time.user-timestamp {
