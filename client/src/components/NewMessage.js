@@ -24,7 +24,7 @@ function NewMessage({sendMessage, user}){
         <h3 id="new-message-lable">New message:</h3>
         <form onSubmit={handleSubmit}>
         <input id="text-input" type="text" value={newMessage} onChange={handleChange}/>
-        <input type="submit" value="Send" />
+        <input className="form-button" type="submit" value="Send" />
     </form></div>
 }
 
