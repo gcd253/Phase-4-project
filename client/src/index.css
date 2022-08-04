@@ -137,15 +137,13 @@ body {
 
 @keyframes message {
   0% {
-    max-height: 0vmax;
+    transform: scale(.9);
   }
   80% {
-    max-height: 75vmax;
     transform: scale(1.1);
   }
   100% {
     transform: scale(1);
-    max-height: 100vmax;
     padding-top: 1rem;
   }
 }

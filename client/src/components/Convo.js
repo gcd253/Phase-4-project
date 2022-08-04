@@ -31,10 +31,10 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
             setMessages([...messages, data])
         })
         
-        // if(Math.random() < .3){
-        //     console.log("danger!")
-        //     onDanger()
-        // }
+        if(Math.random() < .3){
+            console.log("danger!")
+            onDanger()
+        }
         
     }
 
