@@ -6,17 +6,17 @@ import {useState, useEffect} from 'react'
 function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger}){
 
     const [messages, setMessages] = useState([])
-    // const [danger, setDanger] = useState(false)
-
-    // console.log(convo)
 
     useEffect(()=>{
         fetch(`/conversations/${convo.id}`)
         .then(res=>res.json())
         .then(data=>{setMessages(data.messages)
-            // console.log(data.messages)
         })
     },[])
+
+    useEffect(()=>{
+        scrollToBottom("messages-container")
+    },[messages])
 
     function handleNewMessage(input){
 
@@ -33,7 +33,6 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
         })
         if(Math.random() < .3){
             console.log("danger!")
-            // setDanger(true)
             onDanger()
         }
         
@@ -42,6 +41,13 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
     function handleLeave() {
         const memberId = convo.members.filter(member => member.user_id === user.id)
         onLeaveChat(memberId[0])
+    }
+
+    const scrollToBottom = (id) => {
+        if(!danger){
+        const element = document.getElementById(id);
+        element.scrollTop = element.scrollHeight;
+        }
     }
 
     return <div id="convo-container">
