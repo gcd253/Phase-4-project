@@ -489,3 +489,7 @@ body {
   font-size: x-small;
   font-weight: 250;
 }
+
+.change-name {
+  text-align: center;
+}

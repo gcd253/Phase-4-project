@@ -81,7 +81,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
             <Danger user={user} handleLogout={handleLogout} /> :
             <div>
                 <div>{edit?
-                <form onSubmit={handleNewName}><input value={convoName} onChange={handleChangeName}></input></form>:
+                <form onSubmit={handleNewName}><input className="change-name" value={convoName} onChange={handleChangeName}></input></form>:
                 <h1 onClick={handleSelectName} className="conversation-title">{convo.name}</h1>}</div>
 
                 <button className="back-button" onClick={handleBack}>⬅</button>
