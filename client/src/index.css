@@ -43,7 +43,7 @@ code {
   margin-top: 5px;
   margin-bottom: 4px;
   background-color: rgb(205, 205, 205);
-  color: rgb(169, 169, 169);
+  color: hsl(0, 0%, 8%);
 }
 
 .form-button {

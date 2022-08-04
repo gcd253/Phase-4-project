@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         else
           render json: { error: "Invalid username or password" }, status: :unauthorized
         end
-      end
+    end
 
     #Copy/pasted from 'Authenticating Users' Module in Canvas
     def destroy

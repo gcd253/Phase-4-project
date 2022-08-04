@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     user = User.create!(user_params)
+    session[:user_id] = user.id
     render json: user, status: :created
   end
   # PATCH/PUT /users/1
