@@ -480,7 +480,16 @@ body {
   font-size: 18px;
 }
 
+.conversation-title {
+  text-align: center;
+  color: lightblue;
+}
+
 .convo-time {
   font-size: x-small;
   font-weight: 250;
+}
+
+.change-name {
+  text-align: center;
 }

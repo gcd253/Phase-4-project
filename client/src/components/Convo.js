@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react'
 function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger, formatDateTime }) {
 
     const [messages, setMessages] = useState([])
-    const [edit, setEdit] = useState(false)
     const [convoName, setConvoName] = useState(convo.name)
+    const [edit, setEdit] = useState(false)
 
     useEffect(() => {
         fetch(`/conversations/${convo.id}`)
@@ -55,7 +55,8 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
         }
     }
 
-    function handleNewName(){
+    function handleNewName(e){
+        e.preventDefault()
         fetch(`/conversations/${convo.id}`,{
             method: "PATCH",
             headers: {"Content-Type":"application/json"},
@@ -67,13 +68,22 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
         })
     }
 
+    function handleChangeName(e){
+        setConvoName(e.target.value)
+    }
+
+    function handleSelectName(){
+        setEdit(true)
+    }
+
     return <div id="convo-container">
         {danger ?
             <Danger user={user} handleLogout={handleLogout} /> :
             <div>
                 <div>{edit?
-                <input onSubmit={handleNewName}></input>:
-                <h1 onClick={()=>{setEdit(true)}} className="convo-title">{convo.name}</h1>}</div>
+                <form onSubmit={handleNewName}><input className="change-name" value={convoName} onChange={handleChangeName}></input></form>:
+                <h1 onClick={handleSelectName} className="conversation-title">{convo.name}</h1>}</div>
+
                 <button className="back-button" onClick={handleBack}>⬅</button>
                 <div className="convo" id="messages-container">
                     {messages.map(message =>
