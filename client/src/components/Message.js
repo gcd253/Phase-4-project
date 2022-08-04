@@ -12,7 +12,7 @@ function Message({message, user, formatDateTime}){
 
     return <div id="message-container">
         <div className={`messages-div${message.user_id === user.id ? " user-messages" : ""}`} id={message.id}>
-        <p>{actualMessage.user.username} says:</p>
+        <p className="user-says">{actualMessage.user.username} says:</p>
         <p>{message.message}</p>
     </div>
         <div className={`message-time${message.user_id === user.id ? " user-timestamp" : ""}`}>

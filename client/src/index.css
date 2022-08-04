@@ -62,6 +62,7 @@ code {
 }
 
 .convo-card {
+
   padding-left: 15px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   margin-left: 35px;
@@ -334,8 +335,9 @@ body {
   color: rgb(152, 152, 152);
   transition: 0.2s;
   white-space: nowrap;
-  margin-left: 35px;
+  margin-left: 175px;
   margin-bottom: 7px;
+  margin-top: 7px;
 }
 
 .leave-chat-button:hover {
@@ -431,11 +433,13 @@ body {
   color: white;
 
   position: relative;
-  left: 20vh;
+
+  left: 2vh;
+
 }
 
 .message-time.user-timestamp {
-  left: 70vh;
+  left: 97vh;
 }
 
 #message-container {
@@ -446,10 +450,11 @@ body {
 .messages-div {
   background-color: hsl(0, 0%, 14%);
   color: rgb(169, 169, 169);
-  padding-left: 15px;
+  padding-left: 20px;
+  padding-bottom: 15px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-  margin-left: 35px;
-  margin-bottom: 15px;
+  /* margin-left: 35px;
+  margin-bottom: 15px; */
   border-radius: 20px 20px 20px 0px;
   width: 50%;
   /* overflow: hidden; */
@@ -466,8 +471,12 @@ body {
   border-radius: 20px 20px 0px 20px;
 }
 
+.user-says {
+  font-weight: 200;
+}
+
 .convo-title {
-  color: lightyellow;
-  text-align: center;
-  left: 50vh;
+  font-weight: 200;
+  font-size: 15px;
+
 }
