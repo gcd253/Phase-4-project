@@ -16,7 +16,7 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
         .then(data=>{setMessages(data.messages)
             // console.log(data.messages)
         })
-    },[convo.id, messages])
+    },[])
 
     function handleNewMessage(input){
 
