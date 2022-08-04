@@ -71,7 +71,7 @@ function Inbox({user, onLogout}){
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
                 {/* <NewConvo user={user} onAddConvo={handleAddConvo} /> */}
                 <button className="back-button add-new" onClick={handleCreateConvo}>+</button>
-                <div id="inbox">{convos.map(convo=>
+                <div className="inbox" id="inbox">{convos.map(convo=>
                     <ConvoCard
                         key={convo.id}
                         convo={convo}

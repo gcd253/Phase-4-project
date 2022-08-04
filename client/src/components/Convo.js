@@ -49,7 +49,7 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
         <Danger user={user} handleLogout={handleLogout}/>:
         <div>
         <button className="back-button" onClick={handleBack}>⬅</button>
-        <div id="messages-container">
+        <div className="convo" id="messages-container">
         {messages.map(message=>
             <Message
                 username={user.username}

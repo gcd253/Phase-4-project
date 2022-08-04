@@ -270,6 +270,10 @@ body {
   margin-top: 18px;
 }
 
+.inbox::-webkit-scrollbar { width: 0 !important }
+
+.convo::-webkit-scrollbar { width: 0 !important }
+
 #inbox {
   height: 71vh;
   overflow-y:auto;
