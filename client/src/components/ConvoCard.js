@@ -1,11 +1,7 @@
-
-function ConvoCard({convo, user, handleSelect}){
+function ConvoCard({convo, handleSelect}){
 
     function handleClick(){
         handleSelect(convo)
-        //navigate to this convo's page
-        console.log(convo)
-
     }
 
     return <div className="convo-card" id={convo.id} onClick={handleClick}>

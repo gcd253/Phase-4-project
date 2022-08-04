@@ -10,7 +10,6 @@ function Inbox({user, onLogout}){
     const [newConvo, setNewConvo] = useState(false)
     const [danger, setDanger] = useState(false)
 
-    //fix this
     useEffect(()=>{
         fetch('/inbox')
         .then(res=>res.json())
@@ -44,7 +43,10 @@ function Inbox({user, onLogout}){
     function handleLogout(){
         danger?
         console.log("bye bye!"):
-        fetch('/logout', {method: "DELETE", headers:{"Content-Type":"application/json"}}).then(onLogout())
+        fetch('/logout', {
+            method: "DELETE",
+            headers:{"Content-Type":"application/json"}})
+        .then(onLogout())
     }
 
     function handleAddConvo(newConvo) {
@@ -69,15 +71,12 @@ function Inbox({user, onLogout}){
         ((selected.length === 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
-                {/* <NewConvo user={user} onAddConvo={handleAddConvo} /> */}
                 <button className="back-button add-new" onClick={handleCreateConvo}>+</button>
                 <div className="inbox" id="inbox">{convos.map(convo=>
                     <ConvoCard
                         key={convo.id}
                         convo={convo}
-                        // user={user}
                         handleSelect={handleSelect}
-                        // rescueId={convo.id}
                     />)}
                 </div>
             </div>:
