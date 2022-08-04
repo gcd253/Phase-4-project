@@ -2,8 +2,6 @@ import {useState, useEffect} from 'react'
 
 function Message({message, user, formatDateTime}){
 
-    console.log(message)
-
     const [actualMessage, setActualMessage] = useState({user:{username: "..."}})
 
     useEffect(()=>{
