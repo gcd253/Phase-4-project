@@ -1,14 +1,14 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 function Message({message, user, formatDateTime}){
 
     const [actualMessage, setActualMessage] = useState({user:{username: "..."}})
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`/messages/${message.id}`)
-        .then(res=>res.json())
-        .then(data=>setActualMessage(data))
-    },[message.id])
+            .then(res => res.json())
+            .then(data => setActualMessage(data))
+    }, [message.id])
 
     return <div id="message-container">
         <div className={`messages-div${message.user_id === user.id ? " user-messages" : ""}`} id={message.id}>
@@ -18,7 +18,7 @@ function Message({message, user, formatDateTime}){
         <div className={`message-time${message.user_id === user.id ? " user-timestamp" : ""}`}>
             <p>{formatDateTime(message.created_at)}</p>
         </div>
-    </div> 
+    </div>
 }
 
 export default Message

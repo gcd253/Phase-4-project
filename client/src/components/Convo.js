@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react'
 function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger, formatDateTime }) {
 
     const [messages, setMessages] = useState([])
+    const [edit, setEdit] = useState(false)
+    const [convoName, setConvoName] = useState(convo.name)
 
     useEffect(() => {
         fetch(`/conversations/${convo.id}`)
@@ -34,7 +36,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
                 setMessages([...messages, data])
             })
 
-        if (Math.random() < .3) {
+        if (Math.random() < .2) {
             console.log("danger!")
             onDanger()
         }
@@ -53,10 +55,25 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
         }
     }
 
+    function handleNewName(){
+        fetch(`/conversations/${convo.id}`,{
+            method: "PATCH",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({"name": convoName})
+        }).then(res=>res.json)
+        .then(data=>{
+            setConvoName(data.name)
+            setEdit(false)
+        })
+    }
+
     return <div id="convo-container">
         {danger ?
             <Danger user={user} handleLogout={handleLogout} /> :
             <div>
+                <div>{edit?
+                <input onSubmit={handleNewName}></input>:
+                <h1 onClick={()=>{setEdit(true)}} className="convo-title">{convo.name}</h1>}</div>
                 <button className="back-button" onClick={handleBack}>⬅</button>
                 <div className="convo" id="messages-container">
                     {messages.map(message =>

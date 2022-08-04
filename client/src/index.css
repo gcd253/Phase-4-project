@@ -15,8 +15,8 @@ code {
 
 .form-div {
   background-color: #242424;
-  width:200px;
-  padding:35px;
+  width: 200px;
+  padding: 35px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
@@ -38,7 +38,7 @@ code {
   border: 0;
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   width: 80%;
   margin-top: 5px;
   margin-bottom: 4px;
@@ -63,7 +63,7 @@ code {
 
 .convo-card {
   padding-left: 15px;
-  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   margin-left: 35px;
   margin-bottom: 15px;
   width: 90%;
@@ -83,6 +83,12 @@ code {
 
 .container {
   background-color: black;
+}
+
+.convo {
+
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -121,39 +127,19 @@ body {
   margin-right: 65px;
 }
 
-.messages-div {
-  background-color: hsl(0, 0%, 14%);
-  color: rgb(169, 169, 169);
-  padding-left: 15px;
-  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
-  margin-left: 150px;
-  margin-bottom: 15px;
-  border-radius: 20px 20px 20px 0px;
-  width: 40%;
-  overflow: hidden;
-  flex-direction: column;
-  animation: message 0.5s ease-out 0s forwards;
-}
-
 @keyframes message {
   0% {
     transform: scale(.9);
   }
+
   80% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
     padding-top: 1rem;
   }
-}
-
-.messages-div.user-messages {
-  color: #272727;
-  background-color: pink;
-  position: relative;
-  left: 40vh;
-  border-radius: 20px 20px 0px 20px;
 }
 
 .loader {
@@ -167,6 +153,7 @@ body {
   border: 3px solid rgb(169, 169, 169);
   animation: animate 2s linear infinite;
 }
+
 .loader:before {
   content: '';
   position: absolute;
@@ -177,50 +164,47 @@ body {
   background: rgb(169, 169, 169);
   animation: animateBg 2s linear infinite;
 }
-@keyframes animate
-{
-  0%
-  {
+
+@keyframes animate {
+  0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-  25%
-  {
+
+  25% {
     transform: translate(-50%, -50%) rotate(180deg);
   }
-  50%
-  {
+
+  50% {
     transform: translate(-50%, -50%) rotate(180deg);
   }
-  75%
-  {
+
+  75% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
-  100%
-  {
+
+  100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-@keyframes animateBg
-{
-  0%
-  {
+@keyframes animateBg {
+  0% {
     height: 0;
   }
-  25%
-  {
+
+  25% {
     height: 0;
   }
-  50%
-  {
+
+  50% {
     height: 100%;
   }
-  75%
-  {
+
+  75% {
     height: 100%;
   }
-  100%
-  {
+
+  100% {
     height: 0;
   }
 }
@@ -288,18 +272,22 @@ body {
   color: rgb(178, 178, 178);
 }
 
-.inbox::-webkit-scrollbar { width: 0 !important }
+.inbox::-webkit-scrollbar {
+  width: 0 !important
+}
 
-.convo::-webkit-scrollbar { width: 0 !important }
+.convo::-webkit-scrollbar {
+  width: 0 !important
+}
 
 #inbox {
   height: 71vh;
-  overflow-y:auto;
+  overflow-y: auto;
 }
 
 #messages-container {
   height: 59vh;
-  overflow:auto;
+  overflow: auto;
 }
 
 #new-message-lable {
@@ -436,21 +424,50 @@ body {
   margin-left: 25%;
 }
 
+
+
 .message-time {
   font-size: x-small;
   color: white;
-  margin-right: 35px;
+
   position: relative;
   left: 20vh;
 }
 
 .message-time.user-timestamp {
-  left: 100vh;
+  left: 70vh;
 }
 
 #message-container {
   width: 80%;
   margin: auto;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.messages-div {
+  background-color: hsl(0, 0%, 14%);
+  color: rgb(169, 169, 169);
+  padding-left: 15px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  margin-left: 35px;
+  margin-bottom: 15px;
+  border-radius: 20px 20px 20px 0px;
+  width: 50%;
+  /* overflow: hidden; */
+
+  animation: message 0.5s ease-out 0s forwards;
+}
+
+.messages-div.user-messages {
+  color: #272727;
+  background-color: pink;
+
+  position: relative;
+  left: 36%;
+  border-radius: 20px 20px 0px 20px;
+}
+
+.convo-title {
+  color: lightyellow;
+  text-align: center;
+  left: 50vh;
 }
