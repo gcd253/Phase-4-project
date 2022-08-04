@@ -21,7 +21,7 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
     function handleNewMessage(input){
 
         console.log(input)
-        let newMessage = {"user_id": user.id, "message": input, "conversation_id": 1}
+        let newMessage = {"user_id": user.id, "message": input, "conversation_id": convo.id}
         fetch("/messages",{
             method: "POST",
             headers: {"Content-Type":"application/json"},
