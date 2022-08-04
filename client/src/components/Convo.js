@@ -16,6 +16,8 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
 
     useEffect(()=>{
         scrollToBottom("messages-container")
+        setTimeout(()=>{scrollToBottom("messages-container")}, 1000)
+        setTimeout(()=>{scrollToBottom("messages-container")}, 2000)
     },[messages])
 
     function handleNewMessage(input){
