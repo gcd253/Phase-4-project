@@ -42,7 +42,7 @@ function Inbox({user, onLogout}){
 
     function handleLogout(){
         danger?
-        console.log("bye bye!"):
+        console.log("no escape"):
         fetch('/logout', {
             method: "DELETE",
             headers:{"Content-Type":"application/json"}})
