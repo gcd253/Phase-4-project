@@ -42,7 +42,7 @@ function Danger({user, handleLogout}){
     return <div id="total-danger">
         <h1 id="danger-warning">A Drone Strike Has Been Initiated On Your Present Location</h1>
         <h2 id="danger-timer">{display}</h2>
-        <img id="danger-img" src="https://thumbs.dreamstime.com/z/satellite-view-new-york-city-map-d-buildings-manhattan-ground-zero-world-trade-center-site-rendering-streets-199113621.jpg"></img>
+        <img id="danger-img" src="https://thumbs.dreamstime.com/z/satellite-view-new-york-city-map-d-buildings-manhattan-ground-zero-world-trade-center-site-rendering-streets-199113621.jpg" alt="ur done, kid"></img>
     </div>
 }
 

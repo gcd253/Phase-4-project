@@ -1,8 +1,5 @@
-import { useNavigate } from 'react-router-dom'
 
 function ConvoCard({convo, user, handleSelect}){
-
-    let navigate = useNavigate();
 
     function handleClick(){
         handleSelect(convo)

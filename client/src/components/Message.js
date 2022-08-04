@@ -8,7 +8,7 @@ function Message({message, username}){
         fetch(`/messages/${message.id}`)
         .then(res=>res.json())
         .then(data=>setActualMessage(data))
-    },[])
+    },[message.id])
     
     // console.log(username.username)
     // console.log('------separate------')

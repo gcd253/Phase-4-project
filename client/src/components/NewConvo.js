@@ -9,8 +9,8 @@ const NewConvo = ({user, onAddConvo}) => {
   useEffect(() => {
     fetch('/users')
       .then(res => res.json())
-      .then(data => setFriends(data.filter(friend => friend.id != user.id)))
-  }, [])
+      .then(data => setFriends(data.filter(friend => friend.id !== user.id)))
+  }, [user.id])
 
   function handleAddFriend(friend) {
     console.log(added)
