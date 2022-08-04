@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -256,8 +257,17 @@ body {
 }
 
 #logout {
-  position: relative;
-  left: 48%;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  color: rgb(152, 152, 152);
+  transition: 0.2s;
+  white-space: nowrap;
+  font-size: medium;
+
+  float: right;
+  margin-right: 90px;
+  margin-top: 18px;
 }
 
 #inbox {
@@ -307,3 +317,18 @@ body {
   color: rgb(178, 178, 178);
 }
 
+.leave-chat-button {
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  color: rgb(152, 152, 152);
+  transition: 0.2s;
+  white-space: nowrap;
+  margin-left: 35px;
+  margin-bottom: 7px;
+}
+
+.leave-chat-button:hover {
+  cursor: pointer;
+  color: rgb(178, 178, 178);
+}

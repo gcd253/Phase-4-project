@@ -54,7 +54,7 @@ function Convo({convo, user, handleBack, rescueId, onLeaveChat, handleLogout}){
         <div id="new-message">
             <NewMessage user={user} convo={convo} sendMessage={handleNewMessage}/>
         </div>
-        <button onClick={handleLeave}>Leave Chat</button>
+        <button className="leave-chat-button" onClick={handleLeave}>Leave Chat</button>
         </div>}
 
     </div>
