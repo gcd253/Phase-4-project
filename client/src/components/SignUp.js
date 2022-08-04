@@ -1,9 +1,10 @@
 import {useState} from 'react'
 
 function SignUp({ onLogin }) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [passwordConfirmation, setPasswordConfirmation] = useState("")
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -14,6 +15,7 @@ function SignUp({ onLogin }) {
         },
         body: JSON.stringify({
           username,
+          email,
           password,
           password_confirmation: passwordConfirmation,
         }),
@@ -31,6 +33,13 @@ function SignUp({ onLogin }) {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+        <label className="form-label" htmlFor="email">Email:</label>
+        <input className="form-input"
+          type="text"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label className="form-label" htmlFor="password">Password:</label>
         <input className="form-input"
