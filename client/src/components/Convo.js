@@ -1,41 +1,42 @@
 import Message from './Message'
 import Danger from './Danger'
 import NewMessage from './NewMessage'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
-function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger}){
+function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger }) {
 
     const [messages, setMessages] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`/conversations/${convo.id}`)
-        .then(res=>res.json())
-        .then(data=>{setMessages(data.messages)
-        })
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                setMessages(data.messages)
+            })
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         scrollToBottom("messages-container")
-    },[messages])
+    }, [messages])
 
-    function handleNewMessage(input){
+    function handleNewMessage(input) {
 
-        let newMessage = {"user_id": user.id, "message": input, "conversation_id": convo.id}
-        
-        fetch("/messages",{
+        let newMessage = { "user_id": user.id, "message": input, "conversation_id": convo.id }
+
+        fetch("/messages", {
             method: "POST",
-            headers: {"Content-Type":"application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newMessage)
-        }).then(res=>res.json())
-        .then(data=>{
-            setMessages([...messages, data])
-        })
-        
-        if(Math.random() < .3){
+        }).then(res => res.json())
+            .then(data => {
+                setMessages([...messages, data])
+            })
+
+        if (Math.random() < .3) {
             console.log("danger!")
             onDanger()
         }
-        
+
     }
 
     function handleLeave() {
@@ -44,35 +45,37 @@ function Convo({convo, user, handleBack, onLeaveChat, handleLogout, onDanger, da
     }
 
     const scrollToBottom = (id) => {
-        if(!danger){
-        const element = document.getElementById(id);
-        element.scrollTop = element.scrollHeight;
+        if (!danger) {
+            const element = document.getElementById(id);
+            element.scrollTop = element.scrollHeight;
         }
     }
 
     return <div id="convo-container">
-        {danger?
-        <Danger user={user} handleLogout={handleLogout}/>:
-        <div>
-        <button className="back-button" onClick={handleBack}>⬅</button>
-        <div className="convo" id="messages-container">
-        {messages.map(message=>
-            <Message
-                username={user.username}
-                key={message.id}
-                message={message}
-                user={message.user}
-            />)}
-        </div>
-        <div id="new-message">
-            <NewMessage
-                user={user}
-                convo={convo}
-                sendMessage={handleNewMessage}
-            />
-        </div>
-        <button className="leave-chat-button" onClick={handleLeave}>Leave Chat</button>
-        </div>}
+        {danger ?
+            <Danger user={user} handleLogout={handleLogout} /> :
+            <div>
+                <button className="back-button" onClick={handleBack}>⬅</button>
+                <div className="convo" id="messages-container">
+                    {messages.map(message =>
+                        <Message
+                            username={user.username}
+                            key={message.id}
+                            message={message}
+                            user={message.user}
+                        />)}
+                </div>
+                <div id="new-message-container">
+                    <div id="new-message">
+                        <NewMessage
+                            user={user}
+                            convo={convo}
+                            sendMessage={handleNewMessage}
+                        />
+                    </div>
+                    <button className="leave-chat-button" onClick={handleLeave}>Leave Chat</button>
+                </div>
+            </div>}
 
     </div>
 }

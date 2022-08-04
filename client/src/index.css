@@ -151,9 +151,8 @@ body {
 .messages-div.user-messages {
   color: #272727;
   background-color: pink;
-  margin-right: 35px;
   position: relative;
-  left: 20vh;
+  left: 70vh;
   border-radius: 20px 20px 0px 20px;
 }
 
@@ -435,4 +434,27 @@ body {
 
 .new-convo-label.chat-title {
   margin-left: 25%;
+}
+
+.message-time {
+  font-size: x-small;
+  color: white;
+  margin-right: 35px;
+  position: relative;
+  left: 7vh;
+}
+
+.message-time.user-timestamp {
+  left: 80vh;
+}
+
+#message-container {
+  width: 80%;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-message-container {
+padding-bottom: 100px;
 }

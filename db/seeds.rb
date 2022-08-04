@@ -4,7 +4,7 @@ puts '🌱 seeding data...'
 
 User.create(username: "test", email: "test@test.com", password_digest: "2a$12$TLzO7.lnLIBA5aMihvIcKeczuTnpJ8xrOG3qrRrgnqPLgJs6sYEzq")
 
-30.times do
+5.times do
     User.create(username: Faker::Internet.username, email: Faker::Internet.email, password_digest: Faker::Internet.password)
 end
 

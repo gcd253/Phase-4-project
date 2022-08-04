@@ -17,11 +17,15 @@ function Message({message, username}){
         .then(data=>setActualMessage(data))
     },[message.id])
 
-    return <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>
+    return <div id="message-container">
+        <div className={`messages-div${actualMessage.user.username === username ? " user-messages" : ""}`} id={message.id}>
         <p>{actualMessage.user.username} says:</p>
         <p>{message.message}</p>
-        <p>{formatDateTime(message.created_at)}</p>
     </div>
+        <div className={`message-time${actualMessage.user.username === username ? " user-timestamp" : ""}`}>
+            <p>{formatDateTime(message.created_at)}</p>
+        </div>
+    </div> 
 }
 
 export default Message
