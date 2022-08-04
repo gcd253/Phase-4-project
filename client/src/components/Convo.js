@@ -55,7 +55,8 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
         }
     }
 
-    function handleNewName(){
+    function handleNewName(e){
+        e.preventDefault()
         fetch(`/conversations/${convo.id}`,{
             method: "PATCH",
             headers: {"Content-Type":"application/json"},
@@ -67,6 +68,10 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
         })
     }
 
+    function handleChangeName(e){
+        setConvoName(e.target.value)
+    }
+
     function handleSelectName(){
         setEdit(true)
     }
@@ -76,7 +81,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
             <Danger user={user} handleLogout={handleLogout} /> :
             <div>
                 <div>{edit?
-                <form onSubmit={handleNewName}><input value={convoName} onChange={setConvoName}></input></form>:
+                <form onSubmit={handleNewName}><input value={convoName} onChange={handleChangeName}></input></form>:
                 <h1 onClick={handleSelectName} className="conversation-title">{convo.name}</h1>}</div>
 
                 <button className="back-button" onClick={handleBack}>⬅</button>
