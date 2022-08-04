@@ -431,11 +431,11 @@ body {
   color: white;
 
   position: relative;
-  left: 7vh;
+  left: 2vh;
 }
 
 .message-time.user-timestamp {
-  left: 70vh;
+  left: 97vh;
 }
 
 #message-container {
@@ -465,4 +465,8 @@ body {
   position: relative;
   left: 36%;
   border-radius: 20px 20px 0px 20px;
+}
+
+.user-says {
+font-weight: 200;
 }
