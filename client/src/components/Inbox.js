@@ -1,19 +1,14 @@
 import ConvoCard from './ConvoCard'
 import Convo from './Convo'
 import {useState, useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
-import Loader from './Loader'
 import NewConvo from './NewConvo'
 
 function Inbox({user, onLogout}){
 
     const [convos, setConvos] = useState([])
     const [selected, setSelected] = useState([])
-    // let selection = false;
-    const [showForm, setShowForm] = useState(false)
     const [newConvo, setNewConvo] = useState(false)
-
-    const navigate = useNavigate()
+    const [danger, setDanger] = useState(false)
 
     //fix this
     useEffect(()=>{
@@ -32,10 +27,6 @@ function Inbox({user, onLogout}){
         setSelected([])
     }
 
-    function handleClick() {
-        setShowForm(true)
-    }
-
     function handleLeave(member) {
         fetch(`/members/${member.id}`, {
             method: "DELETE",
@@ -51,6 +42,8 @@ function Inbox({user, onLogout}){
     }
 
     function handleLogout(){
+        danger?
+        console.log("bye bye!"):
         fetch('/logout', {method: "DELETE", headers:{"Content-Type":"application/json"}}).then(onLogout())
     }
 
@@ -63,21 +56,40 @@ function Inbox({user, onLogout}){
         setNewConvo(true)
     }
 
+    function handleDanger(){
+        setDanger(true)
+    }
+
     return (
         <div id="inbox-container">
             <h1 id="banner">DANGER CHAT</h1>
             <button id="logout" onClick={handleLogout}>Logout</button>
-        {(newConvo == true)?
+        {(newConvo === true)?
         <NewConvo user={user} onAddConvo={handleAddConvo} />:
-        ((selected.length == 0)?
+        ((selected.length === 0)?
             <div id="container">
                 <h1 className="welcome-banner" >Welcome, {user.username}</h1>
                 {/* <NewConvo user={user} onAddConvo={handleAddConvo} /> */}
                 <button className="back-button add-new" onClick={handleCreateConvo}>+</button>
-                <div id="inbox">{convos.map(convo=><ConvoCard key={convo.id} convo={convo} user={user} handleSelect={handleSelect} rescueId={convo.id}/>)}
+                <div id="inbox">{convos.map(convo=>
+                    <ConvoCard
+                        key={convo.id}
+                        convo={convo}
+                        // user={user}
+                        handleSelect={handleSelect}
+                        // rescueId={convo.id}
+                    />)}
                 </div>
             </div>:
-           <Convo convo={selected[0]} user={user} handleBack={handleBack} onLeaveChat={handleLeave} handleLogout={onLogout}/>
+           <Convo
+                convo={selected[0]}
+                user={user}
+                handleBack={handleBack}
+                onLeaveChat={handleLeave}
+                handleLogout={onLogout}
+                danger={danger}
+                onDanger={handleDanger}
+            />
         )}</div>)
 }
 

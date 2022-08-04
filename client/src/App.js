@@ -2,13 +2,11 @@ import './App.css';
 import {useEffect, useState} from 'react'
 import Inbox from './components/Inbox'
 import Login from './components/Login'
-import { useNavigate } from "react-router-dom";
 import {Route, Routes} from "react-router-dom";
 import SignUp from './components/SignUp'
 
 
 function App() {
-  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
 
