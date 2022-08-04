@@ -53,15 +53,18 @@ const NewConvo = ({user, onAddConvo}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <label>Chat name:</label>
-        <input onChange={handleChange} type="text" value={newConvoName}/>
-        <label>Add your friends:</label>
+        <label className="new-convo-label chat-title">Chat name:</label>
+        <input className="new-convo-input" onChange={handleChange} type="text" value={newConvoName}/>
+        <label className="new-convo-label your-friends">Add your friends:</label>
+        <div className="friends-div">
         {friends.map((friend) => <button
+        className={added.includes(friend) ? "added-friend" : "friend"}
         type="button" 
         key={friend.id} 
         onClick={() => handleAddFriend(friend)}
         >{friend.username}</button>)}
-        <button className="form-button" type="submit">Submit</button>
+        </div>
+        <button className="form-button submit-friends" type="submit">Submit</button>
     </form>
   )
 }

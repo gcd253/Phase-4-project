@@ -284,6 +284,11 @@ body {
   margin-top: 18px;
 }
 
+#logout:hover {
+  cursor: pointer;
+  color: rgb(178, 178, 178);
+}
+
 .inbox::-webkit-scrollbar { width: 0 !important }
 
 .convo::-webkit-scrollbar { width: 0 !important }
@@ -349,4 +354,85 @@ body {
 .leave-chat-button:hover {
   cursor: pointer;
   color: rgb(178, 178, 178);
+}
+
+.friend {
+  border: 0;
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: rgb(205, 205, 205);
+  margin: 10px;
+}
+
+.added-friend {
+  border: 0;
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #272727;
+  margin: 10px;
+  color: white;
+}
+
+.friend:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.friends-div {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.new-convo-label {
+  font-size: large;
+  color: rgb(152, 152, 152);
+  font-weight: 600;
+}
+
+.new-convo-label.your-friends {
+  display: block;
+  margin-left: 30%;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.new-convo-input {
+  width: 48%;
+  height: 50px;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: hsl(0, 0%, 14%);
+  border-radius: 6px;
+  color: rgb(169, 169, 169);
+  border: none;
+  margin-left: 25%;
+  margin-right: 30px;
+  padding-left: 20px;
+
+}
+
+.form-button.submit-friends {
+  margin-left: 30%;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: large;
+  background-color: #757575;
+}
+
+.form-button.submit-friends:hover {
+  background-color: #dadada;
+}
+
+.new-convo-label.chat-title {
+  margin-left: 25%;
 }
