@@ -3,7 +3,7 @@ import Danger from './Danger'
 import NewMessage from './NewMessage'
 import { useState, useEffect } from 'react'
 
-function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger }) {
+function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, danger, formatDateTime }) {
 
     const [messages, setMessages] = useState([])
 
@@ -61,10 +61,10 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
                 <div className="convo" id="messages-container">
                     {messages.map(message =>
                         <Message
-                            username={user.username}
+                            user={user}
                             key={message.id}
                             message={message}
-                            user={message.user}
+                            formatDateTime={formatDateTime}
                         />)}
                 </div>
                 <div id="new-message-container">
