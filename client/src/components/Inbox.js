@@ -42,7 +42,7 @@ function Inbox({user, onLogout}){
 
     function handleLogout(){
         danger?
-        console.log("bye bye!"):
+        console.log("no escape"):
         fetch('/logout', {
             method: "DELETE",
             headers:{"Content-Type":"application/json"}})
@@ -65,7 +65,7 @@ function Inbox({user, onLogout}){
     return (
         <div id="inbox-container">
             <h1 id="banner">DANGER CHAT</h1>
-            <button id="logout" onClick={handleLogout}>Logout</button>
+            <button id="logout" className="logout-button" onClick={handleLogout}>Logout</button>
         {(newConvo === true)?
         <NewConvo user={user} onAddConvo={handleAddConvo} />:
         ((selected.length === 0)?
