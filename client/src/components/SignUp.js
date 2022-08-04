@@ -34,10 +34,9 @@ function SignUp({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
-          className="form-input"
-          placeholder="Email address"
-          type="email"
+        <label className="form-label" htmlFor="email">Email:</label>
+        <input className="form-input"
+          type="text"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
