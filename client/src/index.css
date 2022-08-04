@@ -62,6 +62,7 @@ code {
 }
 
 .convo-card {
+
   padding-left: 15px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   margin-left: 35px;
@@ -334,8 +335,9 @@ body {
   color: rgb(152, 152, 152);
   transition: 0.2s;
   white-space: nowrap;
-  margin-left: 35px;
+  margin-left: 175px;
   margin-bottom: 7px;
+  margin-top: 7px;
 }
 
 .leave-chat-button:hover {
@@ -468,5 +470,10 @@ body {
 }
 
 .user-says {
-font-weight: 200;
+  font-weight: 200;
+}
+
+.convo-title {
+  font-weight: 200;
+  font-size: 15px;
 }
