@@ -6,13 +6,6 @@ function Message({message, user, formatDateTime}){
 
     const [actualMessage, setActualMessage] = useState({user:{username: "loading..."}})
 
-    // function formatDateTime(dateString) {
-    //     const dateTime = new Date(dateString)
-    //     const array = dateTime.toString().split("", 21)
-
-    //     return array
-    // }
-
     useEffect(()=>{
         fetch(`/messages/${message.id}`)
         .then(res=>res.json())

@@ -84,6 +84,7 @@ function Inbox({user, onLogout}){
                         key={convo.id}
                         convo={convo}
                         handleSelect={handleSelect}
+                        formatDateTime={formatDateTime}
                     />)}
                 </div>
             </div>:

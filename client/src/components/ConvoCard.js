@@ -1,4 +1,4 @@
-function ConvoCard({convo, handleSelect}){
+function ConvoCard({convo, handleSelect, formatDateTime}){
 
     function handleClick(){
         handleSelect(convo)
@@ -7,7 +7,7 @@ function ConvoCard({convo, handleSelect}){
     return <div className="convo-card" id={convo.id} onClick={handleClick}>
         <p>{convo.name}</p>
         <p>{convo.users.map(user => user.username).join(", ")}</p>
-        <p>{convo.updated_at}</p>
+        <p>{formatDateTime(convo.updated_at)}</p>
     </div>
 }
 
