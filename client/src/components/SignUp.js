@@ -23,30 +23,32 @@ function SignUp({ onLogin }) {
     }
   
     return (
+      <div className="form-div">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
+        <label className="form-label" htmlFor="username">Username:</label>
+        <input className="form-input"
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <label className="form-label" htmlFor="password">Password:</label>
+        <input className="form-input"
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label htmlFor="password_confirmation">Confirm Password:</label>
-        <input
+        <label className="form-label" htmlFor="password_confirmation">Confirm Password:</label>
+        <input className="form-input"
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button className="form-button" type="submit">Submit</button>
       </form>
+      </div>
     );
   }
 

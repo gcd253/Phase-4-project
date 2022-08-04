@@ -95,7 +95,7 @@ body {
 }
 
 .back-button {
-  color: rgb(152, 152, 152);;
+  color: rgb(152, 152, 152);
   margin-top: 10px;
   margin-left: 15px;
   padding-right: 20px;
@@ -279,4 +279,22 @@ body {
   height: 50px;
   word-wrap: break-word;
   word-break: break-all;
+}
+
+.new-user-button {
+  transition: 0.2s;
+  border: none;
+  background-color: transparent;
+  color: rgb(152, 152, 152);
+  bottom: 0;
+  margin-top: 260px;
+  width: 25%;
+  text-decoration: underline;
+  white-space: nowrap;
+  height: 20px;
+}
+
+.new-user-button:hover {
+  cursor: pointer;
+  color: rgb(178, 178, 178);
 }
