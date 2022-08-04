@@ -61,7 +61,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
             method: "PATCH",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify({"name": convoName})
-        }).then(res=>res.json)
+        }).then(res=>res.json())
         .then(data=>{
             setConvoName(data.name)
             setEdit(false)
@@ -82,7 +82,7 @@ function Convo({ convo, user, handleBack, onLeaveChat, handleLogout, onDanger, d
             <div>
                 <div>{edit?
                 <form onSubmit={handleNewName}><input className="change-name" value={convoName} onChange={handleChangeName}></input></form>:
-                <h1 onClick={handleSelectName} className="conversation-title">{convo.name}</h1>}</div>
+                <h1 onClick={handleSelectName} className="conversation-title">{convoName}</h1>}</div>
 
                 <button className="back-button" onClick={handleBack}>⬅</button>
                 <div className="convo" id="messages-container">

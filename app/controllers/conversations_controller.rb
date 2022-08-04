@@ -14,7 +14,11 @@ class ConversationsController < ApplicationController
 
     def update
         convo = Conversation.find_by(id: params[:id])
-        render json: convo, status: :ok
+        if convo.update(convo_params)
+            render json: convo
+        else
+            render json: convo.errors, status: :unprocessable_entity
+        end
     end
 
     def inbox
