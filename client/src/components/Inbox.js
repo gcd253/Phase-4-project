@@ -94,6 +94,7 @@ function Inbox({user, onLogout}){
                 </div>
             </div>:
            <Convo
+                id="big-convo"
                 convo={selected[0]}
                 user={user}
                 handleBack={handleBack}
