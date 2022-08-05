@@ -489,8 +489,12 @@ body {
 
 .conversation-title {
   text-align: center;
+<<<<<<< HEAD
   color: lightblue;
   margin-bottom: 0;
+=======
+  color: rgb(169, 169, 169);
+>>>>>>> glix
 }
 
 .convo-time {
@@ -511,7 +515,7 @@ body {
 .change-name {
   text-align: center;
   font-size: 2em;
-  color: lightblue;
+  color: rgb(169, 169, 169);
   font-weight: bold;
   background-color: #141414;
   border: 0;
