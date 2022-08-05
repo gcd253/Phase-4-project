@@ -9,6 +9,7 @@ function Inbox({user, onLogout}){
     const [selected, setSelected] = useState([])
     const [newConvo, setNewConvo] = useState(false)
     const [danger, setDanger] = useState(false)
+    const [fire, setFire] = useState(false)
 
     useEffect(()=>{
         fetch('/inbox')
@@ -69,9 +70,13 @@ function Inbox({user, onLogout}){
         return array
     }
 
+    function handleFire(){
+        setFire(!fire)
+    }
+
     return (
         <div id="inbox-container">
-            <h1 id="banner"> <img className="fire-gif" src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/> DANGER CHAT <img className="fire-gif" src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/></h1>
+            <h1 id="banner" onClick={handleFire}><img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/> DANGER CHAT <img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/></h1>
             <button id="logout" className="logout-button" onClick={handleLogout}>Logout</button>
         {(newConvo === true)?
         <NewConvo user={user} onAddConvo={handleAddConvo} />:

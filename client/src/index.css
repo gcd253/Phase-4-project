@@ -508,6 +508,12 @@ body {
   max-height: 66px;
 }
 
+.fire-gif-off {
+  visibility:hidden;
+  max-width: 100px;
+  max-height: 66px;
+}
+
 .change-name {
   text-align: center;
   font-size: 2em;
