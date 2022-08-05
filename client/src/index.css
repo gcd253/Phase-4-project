@@ -489,12 +489,8 @@ body {
 
 .conversation-title {
   text-align: center;
-<<<<<<< HEAD
-  color: lightblue;
-  margin-bottom: 0;
-=======
   color: rgb(169, 169, 169);
->>>>>>> glix
+  margin-bottom: 0;
 }
 
 .convo-time {
