@@ -503,11 +503,17 @@ body {
   margin : 0 auto;
 }
 
-.who-am-i {
-  background-image: linear-gradient(red, yellow);
-}
-
 .fire-gif {
   max-width: 100px;
   max-height: 66px;
+}
+
+.change-name {
+  text-align: center;
+  font-size: 2em;
+  color: lightblue;
+  font-weight: bold;
+  background-color: #141414;
+  border: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
