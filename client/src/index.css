@@ -488,6 +488,9 @@ body {
 }
 
 .conversation-title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: rgb(169, 169, 169);
   margin-bottom: 0;
@@ -501,6 +504,10 @@ body {
 .change-name {
   display: block;
   margin : 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 0;
 }
 
 .fire-gif {
@@ -541,3 +548,4 @@ body {
   border: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
+
