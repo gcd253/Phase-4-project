@@ -76,7 +76,7 @@ function Inbox({user, onLogout}){
 
     return (
         <div id="inbox-container">
-            <h1 id="banner" onClick={handleFire}><img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/> DANGER CHAT <img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames"/></h1>
+            <h1 id="banner" onClick={handleFire}><img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames" role="button"/> DANGER CHAT <img className={fire?"fire-gif":"fire-gif-off"} src="https://blog.joypixels.com/content/images/2019/06/fire_1024.gif" alt="rad freakin' flames" role="button"/></h1>
             <button id="logout" className="logout-button" onClick={handleLogout}>Logout</button>
         {(newConvo === true)?
         <NewConvo user={user} onAddConvo={handleAddConvo} />:

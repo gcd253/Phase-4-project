@@ -506,13 +506,31 @@ body {
 .fire-gif {
   max-width: 100px;
   max-height: 66px;
+  animation: fire-pulse 2s infinite ease-out;
 }
+
+@keyframes fire-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 .fire-gif-off {
   visibility:hidden;
   max-width: 100px;
   max-height: 66px;
 }
+
 
 .change-name {
   text-align: center;
